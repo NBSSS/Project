@@ -1,0 +1,5 @@
+com\niit\backendProject\model\User.class
+com\niit\backendProject\App.class
+com\niit\backendProject\dao\UserDaoImpl.class
+com\niit\backendProject\config\HibernateConfig.class
+com\niit\backendProject\dao\UserDao.class
