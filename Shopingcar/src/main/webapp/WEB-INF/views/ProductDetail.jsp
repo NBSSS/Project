@@ -22,13 +22,21 @@ body {
 </center>
 <body >
 
-
+${msg}
 
 <div class="container">
   
   <fm:form action="addProduct" commandName="product" modelAttribute="product" class="form-horizontal">
     
-    
+    <div class="form-group">
+      <label class="control-label col-sm-3" >Product Id:</label>
+      <div class="col-sm-3">
+   <c:if test="${not empty product.name }"> 
+        <fm:input type="text" class="form-control" path="productId"></fm:input>
+     </c:if>
+
+      </div>
+    </div>
      <div class="form-group">
       <label class="control-label col-sm-3" >Name:</label>
       <div class="col-sm-3">   
@@ -49,9 +57,20 @@ body {
       <label class="control-label col-sm-3" >Category</label>
       <div class="col-sm-3">   
            
-       <fm:select path="category">
+       <fm:select path="catId">
        <c:forEach items="${listCategory}" var="cat">
        <fm:option value="${cat.catId}">${cat.catId}</fm:option>
+       </c:forEach>
+       </fm:select>  
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-3" >Supplier</label>
+      <div class="col-sm-3">   
+           
+       <fm:select path="supId">
+       <c:forEach items="${listSup}" var="sup">
+       <fm:option value="${sup.supId}">${sup.supId}</fm:option>
        </c:forEach>
        </fm:select>  
       </div>
@@ -63,16 +82,17 @@ body {
         <fm:input type="text" class="form-control"  path="qty"></fm:input>
       </div>
     </div>
+    
     <div class="form-group">        
       <div class="col-sm-offset-3 col-sm-3">
-      <c:if test="${empty product.name }">
+    <c:if test="${empty product.name }">
         <fm:button type="submit" class="btn btn-default">Register</fm:button>
-        </c:if>
+   </c:if>
       </div>
       <div class="col-sm-offset-2 col-sm-3">
-      <c:if test="${not empty product.name }">
+      <c:if test="${ not empty product.name }">
         <fm:button type="submit" class="btn btn-default">Update</fm:button>
-        </c:if>
+       </c:if>
       </div>
     </div>
   </fm:form>
@@ -80,30 +100,35 @@ body {
 <h1>Product</h1>
 <table class="table table-hover">
 
-<thread>
+<thead>
 <tr>
-
+<th>PId</th>
 <th>Product name</th>
+
 
 <th>Description</th>
 <th>Qty</th>
 <th>Edit</th>
 <th>Delete</th>
 </tr>
-</thread>
+</thead>
 <c:forEach items="${listProduct}" var="prd">
-
+<thead>
 <tr>
-<thread>
 
-<th>${prd.catId}</th>
+
+<th>${prd.productId}</th>
 <th>${prd.name}</th>
-<th>Edit</th>
-<th>Delete</th>
-</thread>
+<th>${prd.descp}</th>
+<th>${prd.qty}</th>
+
+
+<th><a href="updateProduct/${prd.name}">Edit</a></th>
+<th><a href="deleteProduct/${prd.name}">Delete</a></th>
+
 </tr>
 
-
+</thead>
 </c:forEach>
 
 </table>

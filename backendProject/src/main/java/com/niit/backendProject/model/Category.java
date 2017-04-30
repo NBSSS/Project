@@ -1,36 +1,41 @@
 package com.niit.backendProject.model;
 
 
+import java.util.Set;
 
-import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
 
 import org.springframework.stereotype.Component;
+
 @Component
 @Entity
 public class Category {
 	@Id
-	String catId;
-	@OneToMany(mappedBy="category",fetch=FetchType.EAGER)
-	List<Product>product;
+	private String catId;
+	@OneToMany(mappedBy="category",fetch=FetchType.EAGER,cascade = CascadeType.ALL)
+	Set<Product>product;
 	@Column(unique=true)
 	private String cname;
 	private String cdescp;
+	@Transient
+	MultipartFile image;
 	public String getCatId() {
 		return catId;
 	}
 	public void setCatId(String catId) {
 		this.catId = catId;
 	}
-	public List<Product> getProduct() {
+	public Set<Product> getProduct() {
 		return product;
 	}
-	public void setProduct(List<Product> product) {
+	public void setProduct(Set<Product> product) {
 		this.product = product;
 	}
 	public String getCname() {
@@ -45,6 +50,13 @@ public class Category {
 	public void setCdescp(String cdescp) {
 		this.cdescp = cdescp;
 	}
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartStream image) {
+		this.image = image;
+	}
+	
 	
 	
 	

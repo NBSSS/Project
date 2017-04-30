@@ -31,21 +31,15 @@
        </ul>
      
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="CategoryDetail">Category</a></li>
-    <li><a href="ProductDetail">Product</a></li>
+    
       <li><a href="Signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
        </ul>
-       <form class="navbar-form navbar-right">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-     <button type="button" class="btn btn-info">
-      <span class="glyphicon glyphicon-search"></span> Search
-    </button>
+       
     </form>
   </div>
 </nav>
   
+
   </body>
 </html>

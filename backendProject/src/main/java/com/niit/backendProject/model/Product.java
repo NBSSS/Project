@@ -2,6 +2,7 @@ package com.niit.backendProject.model;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,11 +18,14 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
-	String catId;
-	@ManyToOne
+	private String catId;
+	private String supId;
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="catId",insertable=false,nullable=false,updatable=false)
-	Category category;
-	Supplier supplier;
+private Category category;
+	@ManyToOne
+	@JoinColumn(name="supId",insertable=false,nullable=false,updatable=false)
+private	Supplier supplier;
 	@Column(unique=true)
 	private String name;
 	private String descp;
@@ -67,6 +71,12 @@ public class Product {
 	}
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
+	}
+	public String getSupId() {
+		return supId;
+	}
+	public void setSupId(String supId) {
+		this.supId = supId;
 	}
 	
 	

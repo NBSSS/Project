@@ -20,6 +20,7 @@
         </exclusion>
     </exclusions>
     </dependency>
+ 
     <dependency>
     <groupId>com.niit</groupId>
   <artifactId>backendProject</artifactId>
@@ -88,11 +89,7 @@
     <version>4.12</version>
 </dependency>
 <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-beans</artifactId>
-    <version>${spring-version}</version>
-</dependency>
+
 
     
   </dependencies>

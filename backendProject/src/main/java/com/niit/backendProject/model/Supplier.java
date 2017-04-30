@@ -1,7 +1,6 @@
 package com.niit.backendProject.model;
 
-import java.util.List;
-
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,9 +12,9 @@ import org.springframework.stereotype.Component;
 @Entity
 public class Supplier {
 	@Id
-	String supId;
+	private String supId;
 	@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER)
-	List<Product>product;
+	Set<Product>product;
 	@Column(unique=true)
 	private String sname;
 	private String sdescp;
@@ -25,10 +24,10 @@ public class Supplier {
 	public void setSupId(String supId) {
 		this.supId = supId;
 	}
-	public List<Product> getProduct() {
+	public Set<Product> getProduct() {
 		return product;
 	}
-	public void setProduct(List<Product> product) {
+	public void setProduct(Set<Product> product) {
 		this.product = product;
 	}
 	public String getSname() {
@@ -43,7 +42,6 @@ public class Supplier {
 	public void setSdescp(String sdescp) {
 		this.sdescp = sdescp;
 	}
-	
 	
 
 }

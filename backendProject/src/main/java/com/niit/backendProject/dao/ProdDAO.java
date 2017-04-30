@@ -8,8 +8,12 @@ import com.niit.backendProject.model.Product;
 
 public interface ProdDAO {
 	public boolean addProduct(Product p);
-	public boolean update(Product p);
+	public boolean updateProd(Product p);
+	//this method displays the list of  products
 	List<Product>getAllProduct();	
-	
+	//this method is used to delete the product by product id
+	public boolean deleteProduct(String name);
+	//this method is used to get category by id in product
+	public Product getProductName(String name);
 
 }

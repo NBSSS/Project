@@ -24,7 +24,7 @@ SessionFactory sessionFactory;
 	
 	public boolean addProduct(Product p) {
 		Session f=sessionFactory.getCurrentSession();
-		p.setProductId(p.getProductId());
+		//p.setProductId(p.getProductId());
 		try {
 			f.persist(p);
 		} catch (Exception e) {
@@ -47,7 +47,7 @@ SessionFactory sessionFactory;
 
 
 
-	public boolean update(Product p) {
+	public boolean updateProd(Product p) {
 		try {
 			Session s=sessionFactory.getCurrentSession();
 			s.update(p);
@@ -60,15 +60,37 @@ SessionFactory sessionFactory;
 
 
 
-	@SuppressWarnings("unchecked")
+	
 	public List<Product> getAllProduct() {
 		
 		Session ss=sessionFactory.getCurrentSession();
-		Query qu=ss.createQuery("from Category");
+		Query qu=ss.createQuery("from Product");
 		List<Product> listProduct=(List<Product>)qu.list();
 		return listProduct;
 	}
+	
+	public Product getProductName(String name) {
+		Session s=sessionFactory.getCurrentSession();
+		Query q=s.createQuery("from Product where name=?");
+		q.setString(0, name);
+		return (Product) q.list().get(0);
+		//return s.get(Product.class,name);
+		
+		
+	}
 
+
+
+	@Override
+	public boolean deleteProduct(String name) {
+		Session sg=sessionFactory.getCurrentSession();
+		sg.delete(getProductName(name));
+		return true;
+	}
+
+
+
+	
 	
 
 }

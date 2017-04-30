@@ -4,20 +4,10 @@
     <%@page isELIgnored="false" %>
     <%@taglib uri="http://www.springframework.org/tags/form"  prefix="fm"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <html>
 <head>
 <style>
-body {
-    
-  ;
+body {  
  max-width: 100%;
     height: auto;
     
@@ -39,16 +29,17 @@ body {
   <fm:form action="addSupplier" commandName="supplier" modelAttribute="supplier" class="form-horizontal">
 
     <div class="form-group">
-      <label class="control-label col-sm-3" >CatId:</label>
+      <label class="control-label col-sm-3" >SupId:</label>
       <div class="col-sm-3">
-   <c:if test="${not empty category.sId }"> 
-        <fm:input type="text" class="form-control" path="catId"></fm:input>
-     </c:if>
+   
+        
+        <fm:input type="text" class="form-control" path="supId"></fm:input>
+    
       </div>
     </div>
    
      <div class="form-group">
-      <label class="control-label col-sm-3" >Supplier Name:</label>
+      <label class="control-label col-sm-3" >SupName:</label>
       <div class="col-sm-3">   
            
         <fm:input input="text" class="form-control"  path="sname"></fm:input>
@@ -66,12 +57,13 @@ body {
  
     <div class="form-group">        
       <div class="col-sm-offset-3 col-sm-3">
-      <c:if test="${empty supplier.sId }">
+      
+      <c:if test="${empty supplier.supId }">
         <fm:button type="submit" class="btn btn-default">Register</fm:button>
-        </c:if>
+      </c:if>
       </div>
       <div class="col-sm-offset-2 col-sm-3">
-      <c:if test="${not empty supplier.sId }">
+      <c:if test="${not empty supplier.supId }">
         <fm:button type="submit" class="btn btn-default">Update</fm:button>
         </c:if>
       </div>
@@ -82,30 +74,33 @@ body {
 <h1>Supplier List</h1>
 <table class="table table-hover">
 
-<thread>
+<thead>
 <tr>
 
 <th>Supplier name</th>
-<th>SupplierId Id</th>
+<th>Sup Id</th>
 <th>Description</th>
 <th>Edit</th>
 <th>Delete</th>
 </tr>
-</thread>
+</thead>
 <c:forEach items="${listSup}" var="sp">
-<thread>
+<thead>
 <tr>
+
 <th>${sp.sname}</th>
 <th>${sp.sdescp}</th>
-<th>${sp.sId}</th>
-<th>Edit</th>
-<th>Delete</th>
+<th>${sp.supId}</th>
+<th><a href="updateSupplier/${sp.supId}">Edit</a></th>
+<th><a href="deleteSupplier/${sp.supId}">Delete</a></th>
 </tr>
+</thead>
 </c:forEach>
 </table>
 </c:if>
   
 </div>
+
 
 </body>
 </html>
