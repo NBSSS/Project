@@ -10,8 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
+import org.apache.commons.fileupload.MultipartStream;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 @Component
 @Entity
 public class Product {
@@ -30,6 +33,15 @@ private	Supplier supplier;
 	private String name;
 	private String descp;
 	private String qty;
+	private Long price;
+	@Transient
+	MultipartFile image;
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 	public int getProductId() {
 		return productId;
 	}
@@ -77,6 +89,12 @@ private	Supplier supplier;
 	}
 	public void setSupId(String supId) {
 		this.supId = supId;
+	}
+	public Long getPrice() {
+		return price;
+	}
+	public void setPrice(Long price) {
+		this.price = price;
 	}
 	
 	

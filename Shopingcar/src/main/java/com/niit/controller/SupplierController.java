@@ -18,6 +18,8 @@ public class SupplierController {
 	
 	@Autowired
 	SupDAO supDAO;
+	@Autowired
+	Supplier supplier;
 	@RequestMapping("/supplier")
 	public String category(Model model)
 	{ 
@@ -30,15 +32,15 @@ public class SupplierController {
 	public String addSupplier(@ModelAttribute("supplier")Supplier s,Model model){
 		if(supDAO.getSupplierId(s.getSupId())==null)
 		{
-			
-		if(supDAO.addSuppiler(s))
-		{
-		model.addAttribute("msg","Add Supplier");
-		}
-		else
-		{
-			model.addAttribute("msg","not successsfully register");
-		}
+
+			if(supDAO.addSuppiler(s))
+			{
+				model.addAttribute("msg","Add Supplier");
+			}
+			else
+			{
+				model.addAttribute("msg","not successsfully register");
+			}
 		}
 		else
 		{

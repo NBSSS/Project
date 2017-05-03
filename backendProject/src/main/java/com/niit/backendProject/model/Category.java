@@ -11,9 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-
 import org.springframework.stereotype.Component;
-
 @Component
 @Entity
 public class Category {
@@ -24,8 +22,7 @@ public class Category {
 	@Column(unique=true)
 	private String cname;
 	private String cdescp;
-	@Transient
-	MultipartFile image;
+
 	public String getCatId() {
 		return catId;
 	}
@@ -50,13 +47,6 @@ public class Category {
 	public void setCdescp(String cdescp) {
 		this.cdescp = cdescp;
 	}
-	public MultipartFile getImage() {
-		return image;
-	}
-	public void setImage(MultipartStream image) {
-		this.image = image;
-	}
-	
 	
 	
 	

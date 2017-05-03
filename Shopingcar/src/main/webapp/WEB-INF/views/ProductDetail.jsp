@@ -25,8 +25,9 @@ body {
 ${msg}
 
 <div class="container">
+
   
-  <fm:form action="addProduct" commandName="product" modelAttribute="product" class="form-horizontal">
+  <fm:form action="${pageContext.request.contextPath}/addProduct" commandName="product" modelAttribute="product" class="form-horizontal">
     
     <div class="form-group">
       <label class="control-label col-sm-3" >Product Id:</label>
@@ -50,6 +51,14 @@ ${msg}
       <div class="col-sm-3">   
            
         <fm:input input="text" class="form-control"  path="descp"></fm:input>
+       
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-3" >Price:</label>
+      <div class="col-sm-3">   
+           
+        <fm:input input="text" class="form-control"  path="price"></fm:input>
        
       </div>
     </div>
@@ -96,6 +105,8 @@ ${msg}
       </div>
     </div>
   </fm:form>
+  
+ 
   <c:if test="${not empty listProduct}">
 <h1>Product</h1>
 <table class="table table-hover">
@@ -107,6 +118,7 @@ ${msg}
 
 
 <th>Description</th>
+<th>Price</th>
 <th>Qty</th>
 <th>Edit</th>
 <th>Delete</th>
@@ -120,11 +132,12 @@ ${msg}
 <th>${prd.productId}</th>
 <th>${prd.name}</th>
 <th>${prd.descp}</th>
+<th>${prd.price}</th>
 <th>${prd.qty}</th>
 
 
-<th><a href="updateProduct/${prd.name}">Edit</a></th>
-<th><a href="deleteProduct/${prd.name}">Delete</a></th>
+<th><a href="<c:url value='updateProduct/${prd.name}'/>">Edit</a></th>
+<th><a href="<c:url value='deleteProduct/${prd.name}'/>">Delete</a></th>
 
 </tr>
 

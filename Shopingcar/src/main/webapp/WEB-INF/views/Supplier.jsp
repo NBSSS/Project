@@ -26,13 +26,11 @@ body {
 
 <div class="container">
   
-  <fm:form action="addSupplier" commandName="supplier" modelAttribute="supplier" class="form-horizontal">
+  <fm:form action="${pageContext.request.contextPath}/addSupplier" commandName="supplier" modelAttribute="supplier" class="form-horizontal">
 
     <div class="form-group">
       <label class="control-label col-sm-3" >SupId:</label>
       <div class="col-sm-3">
-   
-        
         <fm:input type="text" class="form-control" path="supId"></fm:input>
     
       </div>

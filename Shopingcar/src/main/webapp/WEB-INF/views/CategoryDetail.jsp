@@ -40,31 +40,20 @@ body {
 
 
 <div class="container">
-  
-  <fm:form action="addCategory" method="POST"  enctype="multipart/form-data" commandName="category" modelAttribute="category"  class="form-horizontal">
-<div>
-		File1 to upload: <input type="file" name="file">
  
-		Name1: <fm:input type="text" path="cname"></fm:input>
- 
- 
-		File2 to upload: <fm:input type="file" path="file"></fm:input>
- 
-		Name2: <input type="text" name="cname">
- 
-
-		<input type="submit" value="Upload"> <h4><b>Press here to upload the file!</b></h4>
-	</div>
-    <div class="form-group">
-      <label class="control-label col-sm-3" >CatId:</label>
-      <div class="col-sm-3">
-   <c:if test="${not empty category.cname }"> 
-        <fm:input type="text" class="form-control" path="catId"></fm:input>
+  <fm:form action="${pageContext.request.contextPath}/addCategory" commandName="category" class="form-horizontal">
+    
+      <c:if test="${not empty category.cname }"> 
+       <div class="form-group">
+       <label class="control-label col-sm-3" >CatId:</label>
+      	<div class="col-sm-3">
+  		<fm:input type="text" class="form-control" path="catId" disabled="true" readonly="true"></fm:input>
+  		<fm:hidden path="catId"/>
+        
+        </div>
+        </div>
      </c:if>
 
-      </div>
-    </div>
-   
      <div class="form-group">
       <label class="control-label col-sm-3" >CategoryName:</label>
       <div class="col-sm-3">   
@@ -89,7 +78,7 @@ body {
         </c:if>
       </div>
       <div class="col-sm-offset-2 col-sm-3">
-      <c:if test="${! empty category.cname }">
+      <c:if test="${not empty category.cname }">
         <fm:button type="submit" class="btn btn-default">Update</fm:button>
         </c:if>
       </div>
@@ -120,8 +109,8 @@ body {
 <th>${cat.cdescp}</th>
 
 
-<th><a href="updateCategory/${cat.catId}">Edit</a></th>
-<th><a href="deleteCategory/${cat.catId}">Delete</a></th>
+<th><a href="<c:url value='updateCategory/${cat.catId}'/>">Edit</a></th>
+<th><a href="<c:url value='deleteCategory/${cat.catId}'/>">Delete</a></th>
 </tr>
 </thead>
 </c:forEach>

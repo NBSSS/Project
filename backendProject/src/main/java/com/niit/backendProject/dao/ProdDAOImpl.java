@@ -21,7 +21,7 @@ public class ProdDAOImpl implements ProdDAO {
 @Autowired
 SessionFactory sessionFactory;
 
-	
+//----------this method is used to insert the product in database-------------	
 	public boolean addProduct(Product p) {
 		Session f=sessionFactory.getCurrentSession();
 		//p.setProductId(p.getProductId());
@@ -36,7 +36,8 @@ SessionFactory sessionFactory;
 
 	
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	//======================this method is used to get product details but that should be unique==================
+	
 	public Set<Product> getProduct() {
 		
 		Session ss=sessionFactory.getCurrentSession();
@@ -46,6 +47,7 @@ SessionFactory sessionFactory;
 	}
 
 
+//-------------------this method is used to update the value in database--------------------------------
 
 	public boolean updateProd(Product p) {
 		try {
@@ -58,7 +60,7 @@ SessionFactory sessionFactory;
 		return true;
 	}
 
-
+//---------------------this method is used to display the product list on jsp page---------------
 
 	
 	public List<Product> getAllProduct() {
@@ -68,6 +70,9 @@ SessionFactory sessionFactory;
 		List<Product> listProduct=(List<Product>)qu.list();
 		return listProduct;
 	}
+	
+	//-----------------this method is used to get the product that you have stored in database via name------------
+	
 	
 	public Product getProductName(String name) {
 		Session s=sessionFactory.getCurrentSession();
@@ -81,7 +86,7 @@ SessionFactory sessionFactory;
 
 
 
-	@Override
+	//-----------------this metho is used to delete product from data base as wel as jsp page-----------
 	public boolean deleteProduct(String name) {
 		Session sg=sessionFactory.getCurrentSession();
 		sg.delete(getProductName(name));
