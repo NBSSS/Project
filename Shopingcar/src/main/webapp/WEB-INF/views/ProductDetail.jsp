@@ -27,7 +27,8 @@ ${msg}
 <div class="container">
 
   
-  <fm:form action="${pageContext.request.contextPath}/addProduct" commandName="product" modelAttribute="product" class="form-horizontal">
+  <fm:form action="${pageContext.request.contextPath}/addProduct"  method="post" enctype="multipart/form-data" commandName="product" modelAttribute="product" class="form-horizontal">
+    
     
     <div class="form-group">
       <label class="control-label col-sm-3" >Product Id:</label>
@@ -54,6 +55,14 @@ ${msg}
        
       </div>
     </div>
+    
+      <div class="form-group">
+       <label class="control-label col-sm-3" >Product Image:</label>
+      <div class="col-sm-3">
+   <fm:input type="file" path="image" required="true"></fm:input>
+    </div>
+    </div>
+    
     <div class="form-group">
       <label class="control-label col-sm-3" >Price:</label>
       <div class="col-sm-3">   

@@ -1,5 +1,10 @@
 package com.niit.controller;
+import javax.servlet.http.HttpServletRequest;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,14 +12,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.method.support.ModelAndViewContainer;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.niit.backendProject.dao.CategoryDAO;
 import com.niit.backendProject.dao.ProdDAO;
 import com.niit.backendProject.dao.SupDAO;
 import com.niit.backendProject.model.Product;
+
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 
 @Controller
@@ -46,16 +56,30 @@ public class ProductController {
 		System.out.println(p.getDescp());
 		
 		if(p.getProductId()==0)
-		
 		{
+			
+		
 		if(prodDAO.addProduct(p))
 		{
-		model.addAttribute("msg","Add Product");
-		}
-		else
-		{
-			model.addAttribute("msg","not successsfully register");
-		}
+			System.out.println("p.getid is zero");
+			
+			MultipartFile file=p.getImage();
+			
+			ServletContext con=httpSession.getServletContext();
+			String filelocation=con.getRealPath("/resources/image/");
+			System.out.println(filelocation);
+			String filename=filelocation+"\\"+p.getProductId()+".jpg";
+			System.out.println(filename);
+			
+			try{
+				byte b[]=file.getBytes();
+				FileOutputStream fos=new FileOutputStream(filename);
+				fos.write(b);
+				fos.close();
+		    	}
+			catch(IOException ex){}
+			catch(Exception e){}
+				}	
 		}
 		
 		else{
@@ -71,7 +95,7 @@ public class ProductController {
 			
 		}
 		return m;
-		
+
 	}
 	
 	@RequestMapping("/updateProduct/{name}")

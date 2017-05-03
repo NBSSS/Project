@@ -220,7 +220,7 @@ div.desc {
 <div class="responsive">
   <div class="gallery">
     <a target="_blank" href="resources/image/hoimg/book.jpg">
-      <img src="resources/image/hoimg/book.jpg"  style="padding:20px;" width="300" height="200">
+      <img src="resources/image/hoimg/book.jpg"  style="padding:20px" width="300" height="200">
     </a>
     <div class="desc">Knowledge Section</div>
   </div>
@@ -230,7 +230,7 @@ div.desc {
 <div class="responsive">
   <div class="gallery">
     <a target="_blank" href="resources/image/hoimg/homedecor.jpg">
-      <img src="resources/image/hoimg/homedecor.jpg" style="padding:20px;" width="300" height="200">
+      <img src="resources/image/hoimg/homedecor.jpg" style="padding:20px" width="300" height="200">
     </a>
     <div class="desc">Decor</div>
   </div>
@@ -243,7 +243,7 @@ div.desc {
 <div class="gallery">
    
     <a  target="_blank" href="resources/image/hoimg/end.jpg">
-      <img src="resources/image/hoimg/end.jpg" style="padding:20px;" width="300" height="200">
+      <img src="resources/image/hoimg/end.jpg" style="padding:20px" width="300" height="200">
     </a>
     <div class="desc">Ford Endeavour</div>
   </div>
