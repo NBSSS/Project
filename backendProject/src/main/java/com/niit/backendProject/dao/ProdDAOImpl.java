@@ -1,4 +1,4 @@
-package com.niit.backendProject.dao;
+ package com.niit.backendProject.dao;
 
 
 import java.util.List;
@@ -97,5 +97,17 @@ SessionFactory sessionFactory;
 
 	
 	
+
+
+	//===============this method is used to get product by category==================
+	
+	
+	public List<Product> getProductByCategory(String catId) {
+	Session s=sessionFactory.getCurrentSession();
+	Query query=s.createQuery("from Product where catId=?");
+	query.setString(0, catId);
+	List<Product> listCatPro=(List<Product>)query.getResultList();
+	return listCatPro;
+	}
 
 }

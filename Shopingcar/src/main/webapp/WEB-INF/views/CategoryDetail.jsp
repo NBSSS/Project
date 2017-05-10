@@ -19,7 +19,6 @@
     box-shadow: 3px 3px 0px transparent;
     transition: 0.5s;
     }
-
 body {
     
   
@@ -40,6 +39,7 @@ body {
 
 
 <div class="container">
+<div class="row col-md-6 col-md-offset-5 custyle">
  
   <fm:form action="${pageContext.request.contextPath}/addCategory" commandName="category" class="form-horizontal">
     
@@ -87,39 +87,41 @@ body {
  
  <c:if test="${not empty listCategory}">
 <h1>Category List</h1>
-<div class="container">
-    <div class="row col-md-6 col-md-offset-2 custyle">
-    <table class="table table-striped custab">
 
-<thead>
-<tr>
-<th>CatId</th>
-<th>Category name</th>
-<th>Description</th>
+    
+    <table class="table table-striped custab" border="1">
+    <thead>
+   
+        <tr>
+            <th>Cat-ID</th>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th  class="text-center" >Action</th>
+        </tr>
 
-<th>Edit</th>
-<th>Delete</th>
-</tr>
 </thead>
+
 <c:forEach items="${listCategory}" var="cat">
-<thead>
+
 <tr>
-<th>${cat.catId}</th>
-<th>${cat.cname}</th>
-<th>${cat.cdescp}</th>
-
-
-<th><a href="<c:url value='updateCategory/${cat.catId}'/>">Edit</a></th>
-<th><a href="<c:url value='deleteCategory/${cat.catId}'/>">Delete</a></th>
+<td>${cat.catId}</td>
+<td>${cat.cname}</td>
+<td>${cat.cdescp}</td>
+<td><a href="<c:url value='updateCategory/${cat.catId}'/>"  class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+	<a href="<c:url value='deleteCategory/${cat.catId}'/>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>Del</a>
+</td>
 </tr>
-</thead>
+
 </c:forEach>
+
 </table>
-</div>
-</div>
 </c:if>
-  
 </div>
+</div>
+
+
+  
+
 
 </body>
 </html>

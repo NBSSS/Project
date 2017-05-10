@@ -87,8 +87,8 @@ body {
 <tr>
 
 <th>${sp.sname}</th>
-<th>${sp.sdescp}</th>
 <th>${sp.supId}</th>
+<th>${sp.sdescp}</th>
 <th><a href="updateSupplier/${sp.supId}">Edit</a></th>
 <th><a href="deleteSupplier/${sp.supId}">Delete</a></th>
 </tr>

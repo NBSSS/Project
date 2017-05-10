@@ -66,6 +66,10 @@ div.desc {
     width: 24.99999%;
 }
 
+.item >img{
+height:200;
+width:200;
+}
 @media only screen and (max-width: 700px){
     .responsive {
         width: 49.99999%;
@@ -158,12 +162,7 @@ div.desc {
   
 
 
-<div class="container">
-   <li><a href="supplier"> Add Supplier</a></li>
-   <li><a href="CategoryDetail">Category</a></li>
-    <li><a href="ProductDetail">Product</a></li>
-  
-</div>
+
 
 
 </div>
@@ -194,7 +193,7 @@ div.desc {
           </div>
         </div>
         <div class="item">
-          <img src="resources/image/hoimg/toyota.jpg" alt="...">
+          <img src="resources/image/hoimg/toyota.jpg" >
           <div class="carousel-caption">
             <h2>New-Fortuner</h2>
           </div>

@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,15 +18,22 @@ import com.niit.backendProject.model.Supplier;
 @Transactional
 @Repository("supDAO")
 public class SupDAOImpl implements SupDAO{
+	Logger log=LoggerFactory.getLogger("SupDAOImpl.class");
 	@Autowired
 	SessionFactory sessionFactory;
+
 public boolean addSuppiler(Supplier s) {
-	Session sf=sessionFactory.getCurrentSession();
-	s.setSupId(s.getSupId());
+	
 	try {
+		log.debug("Starting of Add Supplier Method");
+		
+		Session sf=sessionFactory.getCurrentSession();
+		s.setSupId(s.getSupId());
 		sf.persist(s);
+		log.debug("Sucessfully Added Supplier");
 	} catch (Exception e) {
 		e.printStackTrace();
+		log.error("Error in Add Supplier METHOD");
 		return false;
 	}
 	return true;

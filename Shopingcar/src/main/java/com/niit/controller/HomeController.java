@@ -1,5 +1,7 @@
 package com.niit.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.backendProject.dao.CategoryDAO;
 import com.niit.backendProject.dao.ProdDAO;
+import com.niit.backendProject.dao.SupDAO;
 import com.niit.backendProject.dao.UserDAO;
 import com.niit.backendProject.model.Category;
 import com.niit.backendProject.model.Product;
@@ -22,13 +25,19 @@ import com.niit.backendProject.model.User;
 public class HomeController {
 	@Autowired
 	UserDAO userDAO;
-	
-	
+	@Autowired 
+	SupDAO supDAO;
+	@Autowired
+	CategoryDAO categoryDAO;
+	@Autowired
+	HttpSession httpSession;
 	
 	
 
 	@RequestMapping(value={"/","Home"})
 	public String goHome(){
+		httpSession.setAttribute("listSup",supDAO.getAllSupplier());
+		httpSession.setAttribute("listCategory",categoryDAO.getAllCategory());
 		return "Home";
 		
 	}

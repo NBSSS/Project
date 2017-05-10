@@ -59,7 +59,7 @@ ${msg}
       <div class="form-group">
        <label class="control-label col-sm-3" >Product Image:</label>
       <div class="col-sm-3">
-   <fm:input type="file" path="image" required="true"></fm:input>
+   <fm:input type="file" class="form-control" path="image" required="true"></fm:input>
     </div>
     </div>
     
@@ -134,21 +134,24 @@ ${msg}
 </tr>
 </thead>
 <c:forEach items="${listProduct}" var="prd">
+
 <thead>
+
 <tr>
 
 
-<th>${prd.productId}</th>
-<th>${prd.name}</th>
-<th>${prd.descp}</th>
-<th>${prd.price}</th>
-<th>${prd.qty}</th>
+<td>${prd.productId}</td>
+<td>${prd.name}</td>
+<td>${prd.descp}</td>
+<td>${prd.price}</td>
+<td>${prd.qty}</td>
 
 
-<th><a href="<c:url value='updateProduct/${prd.name}'/>">Edit</a></th>
-<th><a href="<c:url value='deleteProduct/${prd.name}'/>">Delete</a></th>
-
+<td><a href="<c:url value='updateProduct/${prd.name}'/>">Edit</a></td>
+<td><a href="<c:url value='deleteProduct/${prd.name}'/>">Delete</a></td>
+<td><img src="resources/image/${prd.productId}.jpg"></td>
 </tr>
+
 
 </thead>
 </c:forEach>

@@ -41,8 +41,8 @@ public class ProductController {
 	public String product(Model model)
 	{ 
 		model.addAttribute("product",new Product());
-		httpSession.setAttribute("listSup",supDAO.getAllSupplier());
-		httpSession.setAttribute("listCategory",categoryDAO.getAllCategory());
+		  
+		
 		model.addAttribute("listProduct",prodDAO.getAllProduct());
 		
 		return "ProductDetail";
@@ -115,4 +115,10 @@ public String editProduct(@PathVariable() String name,Model model){
 			
 		return "redirect:/ProductDetail";
 		}
+	@RequestMapping("/productbyCategory/{catid}")
+	public String getProdByCat(@PathVariable("catid") String id,Model model ){
+		System.out.print("reteriving data by category");
+		model.addAttribute("listCatPro",prodDAO.getProductByCategory(id));
+		return "CatProduct";
+	}
 }

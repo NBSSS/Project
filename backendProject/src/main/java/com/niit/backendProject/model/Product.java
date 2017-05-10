@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
-import org.apache.commons.fileupload.MultipartStream;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 @Component

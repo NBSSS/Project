@@ -10,20 +10,26 @@ public class User {
 	@Id
 	private String userId;
 		@Column(unique=true)
-	
 	private String name;
 	private String address;
 	private Long mobile;
+    private boolean active;
 	
-	public String getName() {
+	public String getName() 
+	{
 		return name;
 	}
-	public void setName(String name) {
+	
+	public void setName(String name)
+	{
 		this.name = name;
 	}
-	public String getAddress() {
+	
+	public String getAddress()
+	{
 		return address;
 	}
+	
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -40,6 +46,12 @@ public class User {
 	public void setUserId(String userId) {
 		this.userId=userId;
 
+	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 

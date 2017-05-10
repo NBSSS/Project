@@ -4,6 +4,7 @@ package com.niit.backendProject.dao;
 
 import java.util.List;
 
+import com.niit.backendProject.model.Category;
 import com.niit.backendProject.model.Product;
 
 public interface ProdDAO {
@@ -15,5 +16,7 @@ public interface ProdDAO {
 	public boolean deleteProduct(String name);
 	//this method is used to get category by id in product
 	public Product getProductName(String name);
+	// this method is used to get product by category
+	List<Product> getProductByCategory(String catId);
 
 }

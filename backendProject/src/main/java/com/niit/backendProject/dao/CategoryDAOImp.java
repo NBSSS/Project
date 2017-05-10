@@ -58,10 +58,14 @@ SessionFactory sessionFactory;
 	public Category getCategoryId(String id) {
 		Session sg=sessionFactory.getCurrentSession();
 		return sg.get(Category.class,id);
-	//Query q=sg.createQuery("from Category where catId=?");
 	
-	//	q.setString(0,id);
-	//	return (Category)q.list().get(0);
+		
+		//Query q=sg.createQuery("from Category where catId=?");
+	
+
+		//	q.setString(0,id);
+	
+		//	return (Category)q.list().get(0);
 		
 		
 	}
