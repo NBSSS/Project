@@ -15,6 +15,6 @@
    <li><a href="CategoryDetail"> Add Category</a></li>
    <li><a href="ProductDetail"> Add Product</a></li>
   
-</div>
+</div>         
 </body>
 </html>

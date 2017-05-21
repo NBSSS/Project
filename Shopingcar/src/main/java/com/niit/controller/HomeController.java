@@ -32,6 +32,8 @@ public class HomeController {
 	CategoryDAO categoryDAO;
 	@Autowired
 	HttpSession httpSession;
+	@Autowired
+	ProdDAO prodDAO;
 	
 	
 
@@ -39,6 +41,7 @@ public class HomeController {
 	public String goHome(){
 		httpSession.setAttribute("listSup",supDAO.getAllSupplier());
 		httpSession.setAttribute("listCategory",categoryDAO.getAllCategory());
+		httpSession.setAttribute("listproduct",prodDAO.getAllProduct() );
 		return "Home";
 		
 	}

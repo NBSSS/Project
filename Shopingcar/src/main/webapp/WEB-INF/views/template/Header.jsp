@@ -16,7 +16,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="Home">Shop-Kar</a>
+      <a class="navbar-brand" href="${pageContext.request.contextPath}/Home">Shop-Kar</a>
     </div>
     <ul class="nav navbar-nav">
     <sec:authorize access="hasRole('ROLE_ADMIN')">
@@ -27,7 +27,7 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Product<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <c:forEach items="${listCategory}" var="cat">
-            <li><a href="productbyCategory/${cat.catId}">${cat.catId}</a></li>
+            <li><a href="${pageContext.request.contextPath}/productbyCategory/${cat.catId}">${cat.catId}</a></li>
           </c:forEach>
         </ul>
       </li>
@@ -46,8 +46,8 @@
 				</sec:authorize>
       
         <sec:authorize access="isAnonymous()">
-			             <li><a href="Signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-			       		 <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			             <li><a href="${pageContext.request.contextPath}/Signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			       		 <li><a href="${pageContext.request.contextPath}/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
          </sec:authorize>
        
        
