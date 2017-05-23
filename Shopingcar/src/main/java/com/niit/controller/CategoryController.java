@@ -23,7 +23,7 @@ public class CategoryController {
 	public String category(Model model)
 	{ 
 		model.addAttribute("category",new Category());
-		model.addAttribute("listCategory",categoryDAO.getAllCategory());
+	model.addAttribute("listCategory",categoryDAO.getAllCategory());
 		return "CategoryDetail";
 	}
 	@RequestMapping("/addCategory")

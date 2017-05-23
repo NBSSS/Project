@@ -136,8 +136,6 @@ body {
 </thead>
 <c:forEach items="${listProduct}" var="prd">
 
-<thead>
-
 <tr>
 
 
@@ -148,13 +146,14 @@ body {
 <td>${prd.qty}</td>
 
 
+
 <td><a href="<c:url value='updateProduct/${prd.name}'/>">Edit</a></td>
 <td><a href="<c:url value='deleteProduct/${prd.name}'/>">Delete</a></td>
 <!-- <td><img src="resources/image/${prd.productId}.jpg" width="10" height="10"></td> -->
 </tr>
 
 
-</thead>
+
 </c:forEach>
 
 </table>

@@ -14,13 +14,15 @@ import javax.persistence.OneToMany;
 import org.springframework.stereotype.Component;
 @Component
 @Entity
+
 public class Category {
 	@Id
 	private String catId;
-	@OneToMany(mappedBy="category",fetch=FetchType.EAGER,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="category",fetch=FetchType.EAGER ,cascade = CascadeType.REMOVE)
 	Set<Product>product;
 	@Column(unique=true)
 	private String cname;
+	
 	private String cdescp;
 
 	public String getCatId() {

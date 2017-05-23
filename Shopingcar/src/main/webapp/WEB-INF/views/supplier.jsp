@@ -10,16 +10,41 @@
 body {  
  max-width: 100%;
     height: auto;
+}
+ h1{
+   text-align:center;
+   
+   } 
+
+
+table, th, td {
+    border: 3px solid black;
+      border-collapse: collapse;
     
 }
+th, td {
+    padding: 15px;
+}
+table {
+    border-spacing: 5px;
+}
+
+th,td {
+    text-align: center;
+}
+caption{
+text-align:center;
+
+}
+
 </style>
 
 </head>
-<center>
-<h1 style="color">Supplier Details
 
-</h1>
-</center>
+<h1 style="color:red;">Supplier Details</h1>
+
+
+
 <body >
 
 
@@ -31,13 +56,14 @@ body {
     <div class="form-group">
       <label class="control-label col-sm-3" >SupId:</label>
       <div class="col-sm-3">
+        
         <fm:input type="text" class="form-control" path="supId"></fm:input>
     
       </div>
     </div>
    
      <div class="form-group">
-      <label class="control-label col-sm-3" >SupName:</label>
+     	 <label class="control-label col-sm-3" >SupName:</label>
       <div class="col-sm-3">   
            
         <fm:input input="text" class="form-control"  path="sname"></fm:input>
@@ -69,30 +95,32 @@ body {
   </fm:form>
  
  <c:if test="${not empty listSup}">
-<h1>Supplier List</h1>
-<table class="table table-hover">
 
-<thead>
+<table style="width:100%">
+<caption><h3>Supplier List</h3></caption>
+
+
 <tr>
-
-<th>Supplier name</th>
 <th>Sup Id</th>
+<th>Supplier name</th>
 <th>Description</th>
-<th>Edit</th>
-<th>Delete</th>
-</tr>
-</thead>
-<c:forEach items="${listSup}" var="sp">
-<thead>
-<tr>
 
-<th>${sp.sname}</th>
-<th>${sp.supId}</th>
-<th>${sp.sdescp}</th>
-<th><a href="updateSupplier/${sp.supId}">Edit</a></th>
-<th><a href="deleteSupplier/${sp.supId}">Delete</a></th>
+<th colspan="2">Action</th>
+
 </tr>
-</thead>
+
+
+<c:forEach items="${listSup}" var="sp">
+
+<tr>
+<td>${sp.supId}</td>
+<td>${sp.sname}</td>
+<td>${sp.sdescp}</td>
+<td><a href="updateSupplier/${sp.supId}" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-leaf"></span>&nbsp Edit</a></td>
+<td><a href="deleteSupplier/${sp.supId}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp Del</a></td>
+</tr>
+
+
 </c:forEach>
 </table>
 </c:if>

@@ -18,9 +18,6 @@ import com.niit.backendProject.model.Category;
 import com.niit.backendProject.model.Product;
 import com.niit.backendProject.model.User;
 
-
-
-
 @Controller
 
 public class HomeController {

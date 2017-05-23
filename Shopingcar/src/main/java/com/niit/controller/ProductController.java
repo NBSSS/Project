@@ -43,8 +43,8 @@ public class ProductController {
 	public String product(Model model)
 	{ 
 		model.addAttribute("product",new Product());
-		  
-		
+		httpSession.setAttribute("listSup",supDAO.getAllSupplier());
+		httpSession.setAttribute("listCategory",categoryDAO.getAllCategory());
 		model.addAttribute("listProduct",prodDAO.getAllProduct());
 		
 		return "ProductDetail";
@@ -112,7 +112,7 @@ public String editProduct(@PathVariable() String name,Model model){
 	
 	@RequestMapping("/deleteProduct/{name}")
 	public String deleteProduct(@PathVariable("name") String name,Model model)
-		{
+	{
 			prodDAO.deleteProduct(name);
 			
 		return "redirect:/ProductDetail";

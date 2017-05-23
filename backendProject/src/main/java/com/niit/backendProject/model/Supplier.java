@@ -2,6 +2,8 @@ package com.niit.backendProject.model;
 
 import java.io.Serializable;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,11 +12,12 @@ import javax.persistence.OneToMany;
 
 import org.springframework.stereotype.Component;
 @Component
+
 @Entity
 public class Supplier implements Serializable {
 	@Id
 	private String supId;
-	@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	Set<Product>product;
 	@Column(unique=true)
 	private String sname;

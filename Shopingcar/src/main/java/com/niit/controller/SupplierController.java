@@ -24,6 +24,9 @@ public class SupplierController {
 	public String category(Model model)
 	{ 
 		model.addAttribute("supplier",new Supplier());
+		
+		
+		//If comment this then our database values will not be shown on page
 		model.addAttribute("listSup",supDAO.getAllSupplier());
 		
 		return "supplier";

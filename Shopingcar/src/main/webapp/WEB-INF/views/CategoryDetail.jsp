@@ -90,14 +90,14 @@ body {
 <h1>Category List</h1>
 
     
-    <table class="table table-striped custab" border="1">
+    <table class="responsive" class="table table-striped custab" border="1">
     <thead>
    
         <tr>
             <th>Cat-ID</th>
             <th>Category Name</th>
             <th>Description</th>
-            <th  class="text-center" >Action</th>
+            <th colspan="2" class="text-center" >Action</th>
         </tr>
 
 </thead>

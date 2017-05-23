@@ -5,11 +5,11 @@ import java.util.List;
 import com.niit.backendProject.model.Category;
 
 public interface CategoryDAO {
-	//----------Creating table in database------------
+	//----------inserting table values in database------------
 public boolean addCategory(Category c);
 
 
-/*-----------Update the category ----------*/
+       /*-----------Update the category ----------*/
 public boolean update(Category c);
 
 

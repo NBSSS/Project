@@ -3,13 +3,15 @@
 <%@page isELIgnored="false"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<c:url value="resources/bootstrap/css" var="bootcss"/>
 <head>
   <title>Shop-Kar</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="${bootcss}/bootstrap.min.css">
 </head>
 <body>
 
@@ -19,10 +21,7 @@
       <a class="navbar-brand" href="${pageContext.request.contextPath}/Home">Shop-Kar</a>
     </div>
     <ul class="nav navbar-nav">
-    <sec:authorize access="hasRole('ROLE_ADMIN')">
-      <li class="active"><a href="${pageContext.request.contextPath}/adminHome"><span
-							class="glyphicon glyphicon-user"></span>Admin</a></li>
-							</sec:authorize>
+   
       
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Product<span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -33,8 +32,16 @@
       </li>
    
     </ul>
-                   
-  
+             <ul class="nav navbar-nav navbar-center">
+             
+              <sec:authorize access="hasRole('ROLE_ADMIN')">
+      <li class="active"><a href="${pageContext.request.contextPath}/adminHome"><span
+							class="glyphicon glyphicon-user"></span></a></li>
+							</sec:authorize>
+             
+             
+             </ul>      
+ 
 					
   
         

@@ -1,3 +1,4 @@
+
 package com.niit.backendProject.model;
 
 
@@ -25,16 +26,18 @@ public class Product {
 	private int productId;
 	private String catId;
 	private String supId;
-	@ManyToOne(cascade = CascadeType.ALL)
+
+	@ManyToOne
 	@JoinColumn(name="catId",insertable=false,nullable=false,updatable=false)
 private Category category;
 	@ManyToOne
 	@JoinColumn(name="supId",insertable=false,nullable=false,updatable=false)
 private	Supplier supplier;
+
 	@Column(unique=true)
 	private String name;
 	private String descp;
-	private String qty;
+	private int qty;
 	private Long price;
 	@Transient
 	MultipartFile image;
@@ -50,22 +53,17 @@ private	Supplier supplier;
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getDescp() {
 		return descp;
 	}
 	public void setDescp(String descp) {
 		this.descp = descp;
 	}
-	public String getQty() {
+	public int getQty() {
 		return qty;
 	}
-	public void setQty(String qty) {
+	public void setQty(int qty) {
 		this.qty = qty;
 	}
 	public String getCatId() {
@@ -95,9 +93,16 @@ private	Supplier supplier;
 	public Long getPrice() {
 		return price;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public void setPrice(Long price) {
 		this.price = price;
 	}
+
 	
 	
 	
