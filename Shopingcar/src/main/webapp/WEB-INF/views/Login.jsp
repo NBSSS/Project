@@ -7,11 +7,14 @@
 <head>
 <style >
  body {
-   
-      background-size: cover;
+   background-image: url("resources/image/f9.gif");
+      background-size:cover;
     background-position: 50% 50%;
-    background-image: url('http://31.media.tumblr.com/ad65726441493f47e0c8f0473206f4e5/tumblr_mvwl4fCEb21rdpk23o1_1280.jpg');
+   <!-- background-image: url('http://31.media.tumblr.com/ad65726441493f47e0c8f0473206f4e5/tumblr_mvwl4fCEb21rdpk23o1_1280.jpg');-->
+  
+  
   }
+  
  
 .wrapper {    
 	margin-top: 80px;
@@ -23,7 +26,7 @@
   padding: 30px 38px 66px;
   margin: 0 auto;
   background-color: #eee;
-  border: 3px dotted rgba(0,0,0,0.1);  
+  border: 3px dotted rgba(0,0,0,0);  
   }
 
 .form-signin-heading {

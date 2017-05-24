@@ -9,17 +9,23 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 @Component
 
 @Entity
 public class Supplier implements Serializable {
 	@Id
+	@NotEmpty
+	@Size(min=4,max=16)
 	private String supId;
 	@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	Set<Product>product;
 	@Column(unique=true)
+	@NotEmpty
 	private String sname;
 	private String sdescp;
 	public String getSupId() {

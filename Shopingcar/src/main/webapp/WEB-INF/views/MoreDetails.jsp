@@ -100,61 +100,12 @@ div.section > div > input {margin:0px;padding-left:5px;font-size:10px;padding-ri
                         </p>
                         <small>
                         <ul>
-                            <li>Super AMOLED capacitive touchscreen display with 16M colors</li>
-                            <li>Available on GSM, AT&T, T-Mobile and other carriers</li>
-                            <li>Compatible with GSM 850 / 900 / 1800; HSDPA 850 / 1900 / 2100 LTE; 700 MHz Class 17 / 1700 / 2100 networks</li>
-                            <li>MicroUSB-C and USB connectivity</li>
-                            <li>Interfaces with Wi-Fi 802.11 a/b/g/n/ac, dual band and Bluetooth</li>
-                            <li>Wi-Fi hotspot to keep other devices online when a connection is not available</li>
-                            <li>SMS, MMS, email, Push Mail, IM and RSS messaging</li>
-                            <li>Front-facing camera features autofocus, an LED flash, dual video call capability and a sharp 4128 x 3096 pixel picture</li>
-                            <li>Features 16 GB memory and 2 GB RAM</li>
-                            <li>Upgradeable Jelly Bean v4.2.2 to Jelly Bean v4.3 Android OS</li>
-                            <li>17 hours of talk time, 350 hours standby time on one charge</li>
-                            <li>Package includes phone, charger, battery and user manual</li>
-                            
                         </ul>  
                         </small>
                     </div>
                 </div>		
 	</div>
 </div>
-<script>
-$(document).ready(function(){
-    //-- Click on detail
-    $("ul.menu-items > li").on("click",function(){
-        $("ul.menu-items > li").removeClass("active");
-        $(this).addClass("active");
-    })
-
-    $(".attr,.attr2").on("click",function(){
-        var clase = $(this).attr("class");
-
-        $("." + clase).removeClass("active");
-        $(this).addClass("active");
-    })
-
-    //-- Click on QUANTITY
-    $(".btn-minus").on("click",function(){
-        var now = $(".section > div > input").val();
-        if ($.isNumeric(now)){
-            if (parseInt(now) -1 > 0){ now--;}
-            $(".section > div > input").val(now);
-        }else{
-            $(".section > div > input").val("1");
-        }
-    })            
-    $(".btn-plus").on("click",function(){
-        var now = $(".section > div > input").val();
-        if ($.isNumeric(now)){
-            $(".section > div > input").val(parseInt(now)+1);
-        }else{
-            $(".section > div > input").val("1");
-        }
-    })                        
-}) 
-
-</script>
 <!--  ${product.descp}
 <img alt="${product.name}" src="${pageContext.request.contextPath }/resources/image/${product.productId}.jpg/">-->
 </body>

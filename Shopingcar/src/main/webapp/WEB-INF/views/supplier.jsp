@@ -7,7 +7,11 @@
    <html>
 <head>
 <style>
-body {  
+body { 
+background-image: url("resources/image/form1.gif");
+background-size:cover;
+ background-position: 50% 50%;
+
  max-width: 100%;
     height: auto;
 }
@@ -83,7 +87,7 @@ text-align:center;
       <div class="col-sm-offset-3 col-sm-3">
       
       <c:if test="${empty supplier.supId }">
-        <fm:button type="submit" class="btn btn-default">Register</fm:button>
+        <fm:button type="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-registration-mark"></span>&nbspRegister</fm:button>
       </c:if>
       </div>
       <div class="col-sm-offset-2 col-sm-3">
@@ -97,7 +101,7 @@ text-align:center;
  <c:if test="${not empty listSup}">
 
 <table style="width:100%">
-<caption><h3>Supplier List</h3></caption>
+<caption style="color:black"><h3>Supplier List</h3></caption>
 
 
 <tr>
@@ -116,8 +120,8 @@ text-align:center;
 <td>${sp.supId}</td>
 <td>${sp.sname}</td>
 <td>${sp.sdescp}</td>
-<td><a href="updateSupplier/${sp.supId}" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-leaf"></span>&nbsp Edit</a></td>
-<td><a href="deleteSupplier/${sp.supId}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp Del</a></td>
+<td><a href="updateSupplier/${sp.supId}" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</a></td>
+<td><a href="deleteSupplier/${sp.supId}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp Del &nbsp</a></td>
 </tr>
 
 

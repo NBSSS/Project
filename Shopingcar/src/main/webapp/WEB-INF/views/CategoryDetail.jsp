@@ -1,40 +1,53 @@
-
+<%@ include file="template/Header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page isELIgnored="false" %>
     <%@taglib uri="http://www.springframework.org/tags/form"  prefix="fm"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ include file="template/Header.jsp" %>
+ 
 <html>
 <head>
+
 <style>
-<--table css-->
-.custab{
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin: 5% 0;
-    box-shadow: 3px 3px 2px #ccc;
-    transition: 0.5s;
-    }
-.custab:hover{
-    box-shadow: 3px 3px 0px transparent;
-    transition: 0.5s;
-    }
-body {
-    
-  
+body { 
+background-image: url("resources/image/f8.gif");
+background-size:cover;
+ background-position: 50% 50%;
+
  max-width: 100%;
     height: auto;
+}
+table, th, td {
+    border: 3px solid black;
+     border-collapse: collapse;
     
 }
+th, td {
+    padding: 15px;
+}
+table {
+    border-spacing: 15px;
+}
+
+th,td {
+    text-align: center;
+}
+caption{
+text-align:center;
+h1{
+text-aign:center;
+
+
+}
+
+}
+
 </style>
 
 </head>
-<center>
-<h1 style="color">Category Details
 
-</h1>
-</center>
+<h1 style="color:red;">Category Details</h1>
+
 <body >
 
 
@@ -87,20 +100,16 @@ body {
   </fm:form>
  
  <c:if test="${not empty listCategory}">
-<h1>Category List</h1>
-
-    
-    <table class="responsive" class="table table-striped custab" border="1">
-    <thead>
-   
-        <tr>
+<table style="width:100%;">
+    <caption><h3>Category List</h3></caption>
+            <tr>
             <th>Cat-ID</th>
             <th>Category Name</th>
             <th>Description</th>
-            <th colspan="2" class="text-center" >Action</th>
+            <th colspan="2" >Action</th>
         </tr>
 
-</thead>
+
 
 <c:forEach items="${listCategory}" var="cat">
 
@@ -108,15 +117,15 @@ body {
 <td>${cat.catId}</td>
 <td>${cat.cname}</td>
 <td>${cat.cdescp}</td>
-<td><a href="<c:url value='updateCategory/${cat.catId}'/>"  class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
-	<a href="<c:url value='deleteCategory/${cat.catId}'/>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>Del</a>
-</td>
+<td><a href="<c:url value='updateCategory/${cat.catId}'/>"  class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span> Edit</a></td> 
+<td><a href="<c:url value='deleteCategory/${cat.catId}'/>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>Del</a></td>
 </tr>
 
 </c:forEach>
 
 </table>
 </c:if>
+
 </div>
 </div>
 

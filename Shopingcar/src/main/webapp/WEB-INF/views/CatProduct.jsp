@@ -74,7 +74,7 @@
 							</div>
 							<div class="col-md-6 col-xs-6 price">
 								<h3>
-								<label>Rs ${cp.price}</label></h3>
+								<label>&#8377 ${cp.price}</label></h3>
 							</div>
 						</div>
 						<p>${cp.descp}</p>

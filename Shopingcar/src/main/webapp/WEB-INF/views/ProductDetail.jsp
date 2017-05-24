@@ -8,19 +8,45 @@
 <html>
 <head>
 <style>
-body {
-    
-  
+body { 
+background-image: url("resources/image/bg9.jpg");
+background-size:cover;
+ background-position: 50% 50%;
+
  max-width: 100%;
     height: auto;
+}
+h1{
+   text-align:center;
+   
+   } 
+
+
+table, th, td {
+    border: 3px solid black;
+      border-collapse: collapse;
     
 }
+th, td {
+    padding: 15px;
+}
+table {
+    border-spacing: 5px;
+}
+
+th,td {
+    text-align: center;
+}
+caption{
+text-align:center;
+
+}
+
 </style>
 
 </head>
-<center>
-<h1 style="color">Product Page</h1>
-</center>
+<h1>Product Page</h1>
+
 <body >
 
 -${msg}
@@ -73,7 +99,7 @@ body {
       </div>
     </div>
         <div class="form-group">
-      <label class="control-label col-sm-3" >Category</label>
+      <label class="control-label col-sm-3" >Category:</label>
       <div class="col-sm-3">   
            
        <fm:select path="catId">
@@ -84,7 +110,7 @@ body {
       </div>
     </div>
       <div class="form-group">
-      <label class="control-label col-sm-3" >Supplier</label>
+      <label class="control-label col-sm-3" >Supplier:</label>
       <div class="col-sm-3">   
            
        <fm:select path="supId">
@@ -119,21 +145,20 @@ body {
  
   <c:if test="${not empty listProduct}">
 <h1>Product</h1>
-<table class="table table-hover">
+<table style="width:100%">
 
-<thead>
+
 <tr>
 <th>PId</th>
 <th>Product name</th>
 
 
 <th>Description</th>
-<th>Price</th>
+<th>Price &#8377</th>
 <th>Qty</th>
-<th>Edit</th>
-<th>Delete</th>
+<th colspan="2">Action</th>
 </tr>
-</thead>
+
 <c:forEach items="${listProduct}" var="prd">
 
 <tr>
@@ -147,8 +172,8 @@ body {
 
 
 
-<td><a href="<c:url value='updateProduct/${prd.name}'/>">Edit</a></td>
-<td><a href="<c:url value='deleteProduct/${prd.name}'/>">Delete</a></td>
+<td><a href="<c:url value='updateProduct/${prd.name}'/>"class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</a></td>
+<td><a href="<c:url value='deleteProduct/${prd.name}'/>   " class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp Del &nbsp</a></td>
 <!-- <td><img src="resources/image/${prd.productId}.jpg" width="10" height="10"></td> -->
 </tr>
 

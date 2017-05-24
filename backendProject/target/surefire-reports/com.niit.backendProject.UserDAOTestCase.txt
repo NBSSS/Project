@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.niit.backendProject.UserDAOTestCase
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec <<< FAILURE!
-warning(junit.framework.TestSuite$1)  Time elapsed: 0.015 sec  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.091 sec <<< FAILURE!
+warning(junit.framework.TestSuite$1)  Time elapsed: 0.021 sec  <<< FAILURE!
 junit.framework.AssertionFailedError: No tests found in com.niit.backendProject.UserDAOTestCase
 	at junit.framework.Assert.fail(Assert.java:57)
 	at junit.framework.TestCase.fail(TestCase.java:227)
