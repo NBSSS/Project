@@ -22,12 +22,15 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.backendProject.model.Address;
 import com.niit.backendProject.model.Author;
-
+import com.niit.backendProject.model.Cart;
 import com.niit.backendProject.model.Category;
+import com.niit.backendProject.model.Item;
 import com.niit.backendProject.model.Product;
 import com.niit.backendProject.model.Supplier;
 import com.niit.backendProject.model.User;
+
 
 @Configuration
 @EnableTransactionManagement
@@ -56,8 +59,10 @@ public class HibernateConfig {
 		sessionFactory.addAnnotatedClass(Product.class);
 		sessionFactory.addAnnotatedClass(Category.class);
 		sessionFactory.addAnnotatedClass(Author.class);
+		sessionFactory.addAnnotatedClass(Cart.class);
+		sessionFactory.addAnnotatedClass(Address.class);
+		sessionFactory.addAnnotatedClass(Item.class);
 		
-
 		sessionFactory.addProperties(getHibernateProperties());
 		
 		return sessionFactory.buildSessionFactory();
