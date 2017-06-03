@@ -38,7 +38,12 @@ public class SupplierController {
 	public String addSupplier(@Valid@ModelAttribute("supplier")Supplier s,Model model,BindingResult result){
 		
 		
-		
+		if(result.hasErrors()){
+			
+			model.addAttribute("msg","Please fill details properly");
+			
+		}
+		else{
 		if(supDAO.getSupplierId(s.getSupId())==null)
 		{
 
@@ -55,6 +60,8 @@ public class SupplierController {
 		{
 			supDAO.updateSup(s);
 		}
+		}
+		
 		return "redirect:/supplier";
 	}
 @RequestMapping("/updateSupplier/{supId}")

@@ -21,4 +21,5 @@ public interface ProdDAO {
 	// this method is used to get product by Product Id
 	public Product getProductId(int id);
 
+
 }

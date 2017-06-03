@@ -64,6 +64,9 @@ text-align:center;
         <fm:input type="text" class="form-control" path="supId"></fm:input>
     
       </div>
+       <div class="col-sm-3">
+       <fm:errors path="supId" cssStyle="color:#ff0000;"></fm:errors>
+       </div>
     </div>
    
      <div class="form-group">
@@ -73,6 +76,10 @@ text-align:center;
         <fm:input input="text" class="form-control"  path="sname"></fm:input>
        
       </div>
+       <div class="col-sm-3">
+       <fm:errors path="sname" cssStyle="color:#ff0000;"></fm:errors>
+       </div>
+    
     </div>
     <div class="form-group">
       <label class="control-label col-sm-3" >Description:</label>

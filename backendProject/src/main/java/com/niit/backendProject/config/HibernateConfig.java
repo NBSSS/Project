@@ -1,11 +1,4 @@
 package com.niit.backendProject.config;
-
-
-
-
-
-
-
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -21,13 +14,14 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.niit.backendProject.model.Address;
 import com.niit.backendProject.model.Author;
+import com.niit.backendProject.model.BillingAddress;
 import com.niit.backendProject.model.Cart;
 import com.niit.backendProject.model.Category;
-import com.niit.backendProject.model.Item;
+import com.niit.backendProject.model.Customer;
+import com.niit.backendProject.model.CustomerOrder;
 import com.niit.backendProject.model.Product;
+import com.niit.backendProject.model.ShippingAddress;
 import com.niit.backendProject.model.Supplier;
 import com.niit.backendProject.model.User;
 
@@ -59,10 +53,13 @@ public class HibernateConfig {
 		sessionFactory.addAnnotatedClass(Product.class);
 		sessionFactory.addAnnotatedClass(Category.class);
 		sessionFactory.addAnnotatedClass(Author.class);
-		sessionFactory.addAnnotatedClass(Cart.class);
-		sessionFactory.addAnnotatedClass(Address.class);
-		sessionFactory.addAnnotatedClass(Item.class);
+		sessionFactory.addAnnotatedClass(BillingAddress.class);
 		
+		sessionFactory.addAnnotatedClass(ShippingAddress.class);
+		sessionFactory.addAnnotatedClass(Customer.class);
+		sessionFactory.addAnnotatedClass(CustomerOrder.class);
+
+		sessionFactory.addAnnotatedClass(Cart.class);
 		sessionFactory.addProperties(getHibernateProperties());
 		
 		return sessionFactory.buildSessionFactory();

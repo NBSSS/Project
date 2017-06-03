@@ -19,13 +19,12 @@ import org.springframework.stereotype.Component;
 @Entity
 public class Supplier implements Serializable {
 	@Id
-	@NotEmpty
-	@Size(min=4,max=16)
+	@Size(min=4,max=16,message="size is b/w 4-16")
 	private String supId;
 	@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	Set<Product>product;
 	@Column(unique=true)
-	@NotEmpty
+	@NotEmpty(message="name can not be empty")
 	private String sname;
 	private String sdescp;
 	public String getSupId() {

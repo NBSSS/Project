@@ -10,15 +10,29 @@
 <style>
 body {
     
- max-width: 100%;
-    height: auto;
+/* background-image: url("resources/image/kk.jpg"); */
+
+  background-repeat: no-repeat;
+    background-position: right Botton;
+    background-attachment: fixed;
+    background-color:powderblue;
     
+
+
+    
+}
+h3{
+
+text-align:left;
+font-family:arial;
+
 }
 </style>
 
 </head>
 <center>
 <h1 style="color">Registration Page</h1>
+<img src="resources/image/kk.jpg" alt="Mountain View" style="width:304px;height:228px;">
 </center>
 <body >
 
@@ -26,7 +40,7 @@ body {
 
 <div class="container">
   
-  <fm:form action="addUser" commandName="user" modelAttribute="user" class="form-horizontal" >
+  <fm:form action="addUser" commandName="customer" modelAttribute="customer" class="form-horizontal" >
     <div class="form-group">
      <div class="col-sm-3">
        <c:if test="${not empty user.name }"> 
@@ -40,7 +54,15 @@ body {
       <label class="control-label col-sm-3" >Name:</label>
       <div class="col-sm-3">   
            
-        <fm:input input="text" class="form-control"  path="name"></fm:input>
+        <fm:input input="text" class="form-control"  path="username"></fm:input>
+       
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-3" >Email:</label>
+      <div class="col-sm-3">   
+           
+        <fm:input input="text" class="form-control"  path="email"></fm:input>
        
       </div>
     </div>
@@ -53,36 +75,164 @@ body {
        
       </div>
     </div>
+    <h3>Billing Address :</h3>
     
     <div class="form-group">
-      <label class="control-label col-sm-3" >Address:</label>
+      <label class="control-label col-sm-3" >Street Name:</label>
       <div class="col-sm-3">   
            
-        <fm:input input="text" class="form-control"  path="address"></fm:input>
+        <fm:input input="text" class="form-control"  path="billingAddress.streetName" ></fm:input>
        
       </div>
     </div>
+  
+   <div class="form-group">
+      <label  class="control-label col-sm-3" >Apartment No:</label>
+      <div class="col-sm-3">   
+           
+        <fm:input input="text" class="form-control"  path="billingAddress.apartNo" ></fm:input>
+       
+      </div>
+    </div> 
+     
+     <div class="form-group">
+     
+      <label  class="control-label col-sm-3" >City:</label>
+      <div class="col-sm-3">   
+           
+        <fm:input input="text" class="form-control"  path="billingAddress.city"></fm:input>
+       
+      </div>
+    </div> 
+    <div class="form-group">
+  <label class="col-sm-3 control-label" for="selectbasic">State :</label>
+  <div class="col-sm-3">
+    <fm:select id="selectbasic"  path="billingAddress.state" class="form-control">
+      <option value="1">ArunachalPradesh</option>
+      <option value="2">New-Delhi</option>
+      <option value="3">Haryana</option>
+      <option value="4">HimachalPradesh</option>
+       <option value="5">UttarPradesh</option>
+      <option value="6">Mumbai</option>
+    </fm:select>
+  </div>
+</div>
+      
+     
+ <div class="form-group">
+  <label class="col-sm-3 control-label" for="selectbasic">Country :</label>
+  <div class="col-sm-3">
+    <fm:select id="selectbasic"  path="billingAddress.country" class="form-control">
+      <option value="1">India</option>
+      <option value="2">England</option>
+      <option value="3">Germany</option>
+      <option value="4">Australia</option>
+    </fm:select>
+  </div>
+</div>
+
+  
+				
+			<div class="form-group">
+     
+      <label  class="control-label col-sm-3" >Zipcode:</label>
+      <div class="col-sm-3">   
+           
+        <fm:input input="text" class="form-control"  path="billingAddress.zipcode"></fm:input>
+       
+      </div>
+    </div>
+				
+
+		
+                             <h3>Shipping Address :</h3>
+                             			<div class="form-group">
+      <label class="control-label col-sm-3" >Street Name:</label>
+      <div class="col-sm-3">   
+           
+        <fm:input input="text" class="form-control"  path="shippingAddress.streetName" ></fm:input>
+       
+      </div>
+    </div>
+		
+		<div class="form-group">
+      <label  class="control-label col-sm-3" >Apartment No:</label>
+      <div class="col-sm-3">   
+           
+        <fm:input input="text" class="form-control"  path="shippingAddress.apartNo" ></fm:input>
+       
+      </div>
+    </div>
+								
+						<div class="form-group">
+     
+      <label  class="control-label col-sm-3" >City:</label>
+      <div class="col-sm-3">   
+           
+        <fm:input input="text" class="form-control"  path="shippingAddress.city"></fm:input>
+       
+      </div>
+    </div>
+					
+		   <div class="form-group">
+  <label class="col-sm-3 control-label" for="selectbasic">State :</label>
+  <div class="col-sm-3">
+    <fm:select id="selectbasic"  path="shippingAddress.state" class="form-control">
+      <option value="1">AndhraPradesh</option>
+      <option value="2">New-Delhi</option>
+      <option value="3">Haryana</option>
+      <option value="4">HimachalPradesh</option>
+      <option value="5">UttarPradesh</option>
+      <option value="6">Mumbai</option>
+    </fm:select>
+  </div>
+</div>
+ 
+						 <div class="form-group">
+  <label class="col-sm-3 control-label" for="selectbasic">Country :</label>
+						<div class="col-sm-3">
+    <fm:select id="selectbasic"  path="shippingAddress.country" class="form-control">
+      <option value="1">India</option>
+      <option value="2">England</option>
+      <option value="3">Germany</option>
+      <option value="4">Australia</option>
+    </fm:select>
+  </div>
+</div>
+						<div class="form-group">
+     
+      <label  class="control-label col-sm-3" >Zipcode:</label>
+      <div class="col-sm-3">   
+           
+        <fm:input input="text" class="form-control"  path="shippingAddress.zipcode"></fm:input>
+       
+      </div>
+    </div>
+		
+		
+	
+		
     <div class="form-group">        
       
       <label class="control-label col-sm-3" >Mobile:</label>
         <div class="col-sm-3">
-        <fm:input type="text" class="form-control"  path="mobile"></fm:input>
+        <fm:input type="text" class="form-control"  path="mobileno"></fm:input>
+        </div>
       </div>
     </div>
+   
     <div class="form-group">        
-      <div class="col-sm-offset-3 col-sm-3">
-      <c:if test="${empty user.name }">
-        <fm:button type="submit" class="btn btn-default">Register</fm:button>
-        </c:if>
+      <div class="col-sm-offset-1 col-sm-5">
+      
+        <fm:button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span>&nbsp Register</fm:button>
+        
+       
       </div>
-      <div class="col-sm-offset-2 col-sm-3">
-      <c:if test="${not empty user.name }">
-        <fm:button type="submit" class="btn btn-default">Update</fm:button>
-        </c:if>
+      
       </div>
-    </div>
-  </fm:form>
-  <c:if test="${not empty userList}">
+        </fm:form>
+  
+ <%--  <c:if test="${not empty userList}">
 
 
 
@@ -113,6 +263,6 @@ body {
   
   
 </div>
-
+ --%>
 </body>
 </html>
