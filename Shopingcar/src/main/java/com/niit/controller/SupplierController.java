@@ -1,5 +1,6 @@
 package com.niit.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.backendProject.dao.SupDAO;
 
@@ -23,6 +26,9 @@ public class SupplierController {
 	SupDAO supDAO;
 	@Autowired
 	Supplier supplier;
+	
+	@Autowired
+	HttpSession httpSession;
 	@RequestMapping("/supplier")
 	public String category(Model model)
 	{ 
@@ -34,17 +40,19 @@ public class SupplierController {
 		
 		return "supplier";
 	}
-	@RequestMapping("/addSupplier")
-	public String addSupplier(@Valid@ModelAttribute("supplier")Supplier s,Model model,BindingResult result){
+	@RequestMapping(value="/addSupplier",method= RequestMethod.POST)
+	public String addSupplier(@Valid @ModelAttribute("supplier")Supplier s,BindingResult result,Model model){
 		
 		
 		if(result.hasErrors()){
 			
 			model.addAttribute("msg","Please fill details properly");
+			return "supplier";
 			
 		}
 		else{
 		if(supDAO.getSupplierId(s.getSupId())==null)
+			
 		{
 
 			if(supDAO.addSuppiler(s))

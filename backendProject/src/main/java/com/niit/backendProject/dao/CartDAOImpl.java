@@ -1,6 +1,7 @@
 package com.niit.backendProject.dao;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -41,6 +42,7 @@ public class CartDAOImpl implements CartDAO{
 	public boolean save(Cart cart) {
 		// TODO Auto-generated method stub
 		logger.info("Starting save method of cartdaoimpl");
+		System.out.println("cartdao save method is invoked ");
 		try {
 			sessionFactory.getCurrentSession().save(cart);
 			return true;
@@ -205,7 +207,4 @@ public class CartDAOImpl implements CartDAO{
 		update(cart);
 		return cart;
 	}
-
-
-
 }

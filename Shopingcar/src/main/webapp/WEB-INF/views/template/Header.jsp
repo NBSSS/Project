@@ -6,7 +6,7 @@
 <c:url value="resources/bootstrap/css" var="bootcss"/>
 <head>
 
-  <title>Shop-Kar</title>
+  <title>Shop-Kart</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
@@ -20,7 +20,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="${pageContext.request.contextPath}/Home">Shop-Kar</a>
+      <a class="navbar-brand"  href="${pageContext.request.contextPath}/Home">Shop-Kar</a>
     </div>
     <ul class="nav navbar-nav">
    
@@ -40,7 +40,7 @@
       <li class="active"><a href="${pageContext.request.contextPath}/adminHome"><span
 							class="glyphicon glyphicon-user"></span></a></li>
 							</sec:authorize>
-             
+            
              
              </ul>      
  
@@ -51,6 +51,15 @@
       <ul class="nav navbar-nav navbar-right">
        <sec:authorize access="isAuthenticated()"> 
 					<li style="color:powderblue"> <br>Welcome  <i>${pageContext.request.userPrincipal.name}</i></li>
+	   </sec:authorize>
+	   
+		<sec:authorize access="hasRole('ROLE_USER')" >			
+					<li> <a href="${pageContext.request.contextPath}/all"><span class="glyphicon glyphicon-shopping-cart"></span>&nbspCart</a></li>
+				</sec:authorize>
+      
+      
+	   
+		<sec:authorize access="isAuthenticated()" >			
 					<li> <a href="${pageContext.request.contextPath}/LogOut">Logout</a></li>
 				</sec:authorize>
       

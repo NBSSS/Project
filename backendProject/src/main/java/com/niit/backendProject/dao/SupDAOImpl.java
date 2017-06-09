@@ -34,7 +34,7 @@ public boolean addSuppiler(Supplier s) {
 		
 		Session sf=sessionFactory.getCurrentSession();
 		
-		s.setSupId(s.getSupId());
+	//	s.setSupId(s.getSupId());
 		
 		sf.persist(s);
 		

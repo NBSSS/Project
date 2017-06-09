@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- 
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
  <%@ include file="template/Header.jsp" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -211,8 +211,10 @@ img {
 						
 					
 						<div class="action">
+						
 							 <a href="${pageContext.request.contextPath}/addToCart/${product.productId}" class="add-to-cart btn btn-default" type="button">add to cart</a>
 							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+						
 						</div>
 					</div>
 				</div>

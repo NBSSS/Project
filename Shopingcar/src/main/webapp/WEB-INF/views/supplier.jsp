@@ -17,9 +17,32 @@ background-size:cover;
 }
  h1{
    text-align:center;
-   
-   } 
+    
 
+
+   
+   
+
+ width: 100px;
+    height: 100px;
+    
+    position: relative;
+    -webkit-animation: mymove 3s infinite; /* Safari 4.0 - 8.0 */
+    -webkit-animation-timing-function: linear; /* Safari 4.0 - 8.0 */
+    animation: mymove 3s infinite;
+    animation-timing-function: linear;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    from {left: 300px;}
+    to {left: 500px;}
+}
+
+@keyframes mymove {
+    from {left: 300px;}
+    to {left: 500px;}
+}
 
 table, th, td {
     border: 3px solid black;
@@ -44,25 +67,21 @@ text-align:center;
 </style>
 
 </head>
-
-<h1 style="color:red;">Supplier Details</h1>
-
-
-
 <body >
+<h1 style="color:black;">Supplier Details</h1>
 
 
-
+<c:if test="${not empty msg}">
+           <h3 style="text-align:center;">      ${msg}</h3>
+</c:if>
 <div class="container">
-  
-  <fm:form action="${pageContext.request.contextPath}/addSupplier" commandName="supplier" modelAttribute="supplier" class="form-horizontal">
+  <fm:form action="${pageContext.request.contextPath}/addSupplier"  commandName="supplier" modelAttribute="supplier"  method="post" class="form-horizontal">
 
     <div class="form-group">
       <label class="control-label col-sm-3" >SupId:</label>
       <div class="col-sm-3">
-        
-        <fm:input type="text" class="form-control" path="supId"></fm:input>
-    
+        <fm:input type="text" class="form-control" path="supId" value="${supplier.supId}"></fm:input>
+          
       </div>
        <div class="col-sm-3">
        <fm:errors path="supId" cssStyle="color:#ff0000;"></fm:errors>
@@ -71,8 +90,7 @@ text-align:center;
    
      <div class="form-group">
      	 <label class="control-label col-sm-3" >SupName:</label>
-      <div class="col-sm-3">   
-           
+      <div class="col-sm-3">          
         <fm:input input="text" class="form-control"  path="sname"></fm:input>
        
       </div>
@@ -93,12 +111,12 @@ text-align:center;
     <div class="form-group">        
       <div class="col-sm-offset-3 col-sm-3">
       
-      <c:if test="${empty supplier.supId }">
+      <c:if test="${empty supplier.sname}">
         <fm:button type="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-registration-mark"></span>&nbspRegister</fm:button>
       </c:if>
       </div>
       <div class="col-sm-offset-2 col-sm-3">
-      <c:if test="${not empty supplier.supId }">
+      <c:if test="${not empty supplier.sname}">
         <fm:button type="submit" class="btn btn-default">Update</fm:button>
         </c:if>
       </div>

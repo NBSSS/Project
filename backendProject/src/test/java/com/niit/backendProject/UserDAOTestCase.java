@@ -33,10 +33,10 @@ public static void intialize(){
 }
 @Test
 public void createUserTestCase(){
-	user.setAddress("Faridabad");
+	/*user.setAddress("Faridabad");
 user.setMobile((long) 813041);
 user.setName("Aash");
-
+*/
 
 
 assertEquals("createUserTestCase", true);

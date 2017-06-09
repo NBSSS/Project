@@ -46,13 +46,16 @@ text-aign:center;
 
 </head>
 
-<h1 style="color:red;">Category Details</h1>
+<h1 style="color:navy;"><center>Category Details</center></h1>
 
 <body >
 
-
+ <c:if test="${not empty msg}">
+           <h3 style="text-align:center;">${msg}</h3>
+ </c:if>
 
 <div class="container">
+
 <div class="row col-md-6 col-md-offset-5 custyle">
  
   <fm:form action="${pageContext.request.contextPath}/addCategory" commandName="category" class="form-horizontal">
@@ -75,8 +78,13 @@ text-aign:center;
         <fm:input input="text" class="form-control"  path="cname"></fm:input>
        
       </div>
-    </div>
-    <div class="form-group">
+   
+    
+       <div class="col-sm-3">
+       <fm:errors path="cname" cssStyle="color:#ff0000;"></fm:errors>
+       </div>
+        </div>
+       <div class="form-group">
       <label class="control-label col-sm-3" >Description:</label>
       <div class="col-sm-3">   
            

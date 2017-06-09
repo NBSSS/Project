@@ -10,17 +10,20 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 @Component
 @Entity
 
 public class Category {
 	@Id
+	@NotEmpty(message="Category Id should not be Empty")
 	private String catId;
 	@OneToMany(mappedBy="category",fetch=FetchType.EAGER ,cascade = CascadeType.REMOVE)
 	Set<Product>product;
+	
 	@Column(unique=true)
+	@NotEmpty(message="Category name must not be Empty")
 	private String cname;
 	
 	private String cdescp;

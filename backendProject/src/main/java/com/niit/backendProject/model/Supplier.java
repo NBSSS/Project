@@ -15,11 +15,10 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 @Component
-
 @Entity
 public class Supplier implements Serializable {
 	@Id
-	@Size(min=4,max=16,message="size is b/w 4-16")
+	@Size(min=2,max=16,message="size is b/w 4-16")
 	private String supId;
 	@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	Set<Product>product;

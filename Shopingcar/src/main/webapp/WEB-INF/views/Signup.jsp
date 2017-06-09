@@ -12,9 +12,9 @@ body {
     
 /* background-image: url("resources/image/kk.jpg"); */
 
-  background-repeat: no-repeat;
-    background-position: right Botton;
-    background-attachment: fixed;
+  background-repeat: repeat;
+    background-position: right center;
+   
     background-color:powderblue;
     
 

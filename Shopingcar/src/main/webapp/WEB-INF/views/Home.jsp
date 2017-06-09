@@ -1,6 +1,7 @@
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ include file="template/Header.jsp" %>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,7 +220,7 @@ width:200;
 
 
 <!--gallery for home page-->
-
+<!-- 
 <div class="responsive">
   <div class="gallery">
     <a target="_blank" href="resources/image/hoimg/book.jpg">
@@ -252,5 +253,8 @@ width:200;
   </div>
 
 
-</div>
+</div>-->
 
+<hr/><%@ include file="template/Footer.jsp" %>
+</body>
+</html>

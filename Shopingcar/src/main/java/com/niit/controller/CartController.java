@@ -2,6 +2,7 @@ package com.niit.controller;
 
 
 
+import java.security.Principal;
 import java.util.Date;
 
 import javax.servlet.http.HttpSession;
@@ -30,7 +31,6 @@ import sun.awt.AWTAccessor.SystemColorAccessor;
 
 
 @Controller
-
 public class CartController {
 
 	private final Logger logger = LoggerFactory.getLogger(CartController.class);
@@ -67,17 +67,17 @@ public class CartController {
 
 	@RequestMapping(value = "/addToCart/{id}")
 
-	public String addToCart(@PathVariable("id") int id, RedirectAttributes redirect, Model model) {
+	public String addToCart(@PathVariable("id") int id, RedirectAttributes redirect, Model model,Principal p) {
+		
 System.out.println("addtocart");
 		logger.info("Starting addtocart method in CartController");
 		try {
 			Cart cart = new Cart();
 			Product product = prodDAO.getProductId(id);
-
+			System.out.println(product.getName());
 			cart.setProductName(product.getName());
 			cart.setPrice(product.getPrice());
 			cart.setDateAdded(new Date());
-			String loggedInUsername = null;
 
 			/*if (loggedInUsername == null) {
 
@@ -87,13 +87,15 @@ System.out.println("addtocart");
 
 			}*/
 			
-		String username=(String)session.getAttribute("loggedInName");
-		
+		String username=p.getName();
+		System.out.println("username: "+username);
 			cart.setUsername(username);
 			cart.setStatus("NEW");
-			Customer customer = (Customer)session.getAttribute("loggedInUsername");
+			Customer customer =userDAO.getUserByCustomerName(username);
+			System.out.println(customer.getId());
 			cart.setCustomer_id(customer.getId());
 			Cart existCart = cartDAO.getCartByUsername(username, cart.getProductName());
+			System.out.println(product.getName());
 			if (existCart != null) {
 				int currentQuantity = cartDAO.getQuantity(username, cart.getProductName());
 				cart.setId(existCart.getId());
@@ -104,13 +106,14 @@ System.out.println("addtocart");
 
 					redirect.addFlashAttribute("success", product.getName() + " " + "Successfully added to cart!");
 					session.setAttribute("numberProducts", cartDAO.getNumberOfProducts(username));
-					return "redirect:/MoreDetails";
+					return "redirect:/all";
 
 				} else {
 					redirect.addFlashAttribute("error", "Failed to add product to cart!");
 					return "redirect:/CatProduct";
 				}
 			} else {
+				System.out.println("first time product is going to add");
 				cart.setQuantity(1);
 				boolean flag = cartDAO.save(cart);
 
@@ -118,7 +121,7 @@ System.out.println("addtocart");
 
 					redirect.addFlashAttribute("success", product.getName() + " " + "Successfully added to cart!");
 					session.setAttribute("numberProducts", cartDAO.getNumberOfProducts(username));
-					return "redirect:/Cart";
+					return "Cart";
 
 				} else {
 					redirect.addFlashAttribute("error", "Failed to add product to cart!");
@@ -149,12 +152,12 @@ System.out.println("addtocart");
 				cart.setQuantity(checkQ - 1);
 				cartDAO.update(cart);
 				redirect.addFlashAttribute("success", "Cart updated successfully.");
-				return "redirect:/Cart/all";
+				return "redirect:/all";
 			} else {
 				// cart.setStatus("OLD");
 				cartDAO.delete(id);
 				redirect.addFlashAttribute("success", "Item removed successfully.");
-				return "redirect:/Cart/all";
+				return "redirect:/all";
 			}
 		} catch (Exception e) {
 			logger.error("Exception occured " + e);
@@ -173,10 +176,10 @@ System.out.println("addtocart");
 
 			if (flag >= 1) {
 				redirect.addFlashAttribute("success", "All Items removed successfully.");
-				return "redirect:/Cart/all";
+				return "redirect:/all";
 			} else {
 				redirect.addFlashAttribute("error", "Failed to clear cart!");
-				return "redirect:/Cart/all";
+				return "redirect:/all";
 			}
 
 		} catch (Exception e) {

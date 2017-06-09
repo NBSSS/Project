@@ -12,7 +12,7 @@
 <jsp:include page="/WEB-INF/views/template/Header.jsp"></jsp:include>
 <div class="container">
    <li><a href="supplier"> Add Supplier</a></li>
-   <li><a href="CategoryDetail"> Add Category</a></li>
+   <li><a href="CategoryDetail"> <img src="resources/image/add-category-md.png"  style="width:100px;height:60px;border:2"><!-- Add Category --></a></li>
    <li><a href="ProductDetail"> Add Product</a></li>
   
 </div>         

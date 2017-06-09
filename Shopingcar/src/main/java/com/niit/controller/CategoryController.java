@@ -2,9 +2,12 @@ package com.niit.controller;
 
 
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,14 +30,20 @@ public class CategoryController {
 		return "CategoryDetail";
 	}
 	@RequestMapping("/addCategory")
-	public ModelAndView addCategory(@ModelAttribute("category")Category c,Model model){
-		
-		ModelAndView mv=new ModelAndView("forward:/CategoryDetail");
-		
-		System.out.println(c.getCatId());
+	public String addCategory(@Valid @ModelAttribute("category")Category c,BindingResult result,Model model){
+		if (result.hasErrors()){
+			
+			model.addAttribute("msg", "Please Fill the Details Correctly");
+		//ModelAndView mv=new ModelAndView("CategoryDetail");
+			return "CategoryDetail";
+		}
+	/*	
+	 * System.out.println(c.getCatId());
 		
 		System.out.println(c.getCname());
 		System.out.println(c.getCdescp());
+		*/
+		else{
 		if(c.getCatId()==null || c.getCatId().isEmpty())
 		{
 			if(categoryDAO.addCategory(c))
@@ -49,7 +58,7 @@ public class CategoryController {
 		}
 		else
 		{
-	    System.out.println("product is updating");
+	    System.out.println("category is updating");
 	    if(categoryDAO.update(c))
 		{
 		model.addAttribute("msg"," Catgory updated Sucessfully");
@@ -60,7 +69,14 @@ public class CategoryController {
 		}			
 	}
 		
-		return mv;
+		
+		}
+		return "redirect:/CategoryDetail";
+		
+		
+		
+	
+		
 	}
 	@RequestMapping("/updateCategory/{catId}")
 	//public String editCategory(@PathVariable("catId") String catId,Model model){

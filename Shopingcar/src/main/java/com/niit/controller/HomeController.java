@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.backendProject.dao.CartDAO;
 import com.niit.backendProject.dao.CategoryDAO;
 import com.niit.backendProject.dao.ProdDAO;
 import com.niit.backendProject.dao.SupDAO;
@@ -39,6 +40,8 @@ public class HomeController {
 	HttpSession httpSession;
 	@Autowired
 	ProdDAO prodDAO;
+	@Autowired
+	CartDAO cartDAO;
 	
 	
 	
@@ -48,6 +51,7 @@ public class HomeController {
 		httpSession.setAttribute("listSup",supDAO.getAllSupplier());
 		httpSession.setAttribute("listCategory",categoryDAO.getAllCategory());
 		httpSession.setAttribute("listproduct",prodDAO.getAllProduct() );
+		
 		return "Home";
 		
 	}
@@ -180,6 +184,9 @@ public String addUser(@ModelAttribute("customer") Customer u,Model model)
 	httpSession.setAttribute("loggedInUsername",userDAO.getUserByUserName(p.getName()));
 	httpSession.setAttribute("loggedInName",p.getName());
 	Cart cart=new Cart();
+	httpSession.setAttribute("numberProducts", cartDAO.getNumberOfProducts(p.getName()));
+	httpSession.setAttribute("cartList", cartDAO.getCartList(p.getName()));
+	
 	 
 	 
 	 return "Home";

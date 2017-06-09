@@ -70,7 +70,7 @@ input[type="password"] {
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 	<body >  
- 
+ ${msg}
 
 <div class = "container">
 	<div class="wrapper">
