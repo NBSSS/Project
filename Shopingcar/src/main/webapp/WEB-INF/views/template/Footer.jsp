@@ -6,28 +6,61 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
 
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
+.footer-bottom {
+    background-color: #15224f;
+    min-height: 0x;
+    width: 100%;
 }
+.copyright {
+    color: #fff;
+    line-height: 25px;
+    min-height: 25px;
+    padding: 0px 0;
+    text-align: center;
+}
+.design {
+    color: #fff;
+    line-height: 25px;
+    min-height: 25px;
+    padding: 5px 0;
+    text-align: center;
+}
+.design a {
+    color: #fff;
+}
+
+
 </style>
 </head>
 <body>
-
-
 <footer class="container-fluid text-center ">
+<div class="footer-bottom">
 
-        <div class="copyrights" style="margin-top:25px; color:#050961 " >
-            <p>Shop-Kar <BR>
-            © 2017, All Rights Reserved
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+				<div class="copyright">
+
+					    <p>Shop-Kar <BR>
+                 © 2017, All Rights Reserved
                <br>
                 <span>Web Design By:Er. Aashish&nbspAtrey</span></p>
-        </div>
+  <p>Online Store Copyright</p> 
+				</div>
+
+			</div>
+			</div>
+			</div>
+			</div>
+
+
+       
+      
+ 
+  
 	</footer> 
 	
 </body>

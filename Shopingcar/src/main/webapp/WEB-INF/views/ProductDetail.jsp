@@ -49,7 +49,10 @@ text-align:center;
 
 <body >
 
--${msg}
+<!--${msg}-->
+<c:if test="${not empty msg}">
+           <h3 style="text-align:center;"> ${msg}</h3>
+</c:if>
 
 <div class="container">
 
@@ -58,22 +61,27 @@ text-align:center;
     
     
     <div class="form-group">
-      <label class="control-label col-sm-3" >Product Id:</label>
+      <c:if test="${not empty product.name }"> 
+       <label class="control-label col-sm-3" >Product Id:</label>
       <div class="col-sm-3">
-   <c:if test="${not empty product.name }"> 
+  
         <fm:input type="text" class="form-control" path="productId"></fm:input>
+      </div> 
      </c:if>
 
-      </div>
+      
     </div>
      <div class="form-group">
       <label class="control-label col-sm-3" >Name:</label>
       <div class="col-sm-3">   
            
         <fm:input input="text" class="form-control"  path="name"></fm:input>
-       
-      </div>
+        <fm:errors path="name" cssStyle="color:#ff0000;"></fm:errors>
+       </div>
     </div>
+       
+      
+    
     <div class="form-group">
       <label class="control-label col-sm-3" >Description:</label>
       <div class="col-sm-3">   

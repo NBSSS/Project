@@ -9,10 +9,12 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -52,13 +54,18 @@ public class ProductController {
 		return "ProductDetail";
 	}
 	@RequestMapping("/addProduct")
-	public ModelAndView addProduct(@ModelAttribute("product")Product p,Model model){
-		
+	public ModelAndView addProduct(@Valid @ModelAttribute("product")Product p,BindingResult result,Model model){
 		ModelAndView m=new ModelAndView("forward:/ProductDetail");
-		System.out.println(p.getProductId());
+		if(result.hasErrors()){
+			m.addObject("msg", "please fil the details correctly");
+	
+			return m;
+	/*	System.out.println(p.getProductId());
 		System.out.println(p.getName());
-		System.out.println(p.getDescp());
+		System.out.println(p.getDescp());*/
 		
+		}
+		else{
 		if(p.getProductId()==0)
 		{
 			
@@ -97,6 +104,7 @@ public class ProductController {
 				model.addAttribute("msg","not updated");
 			}			
 			
+		}
 		}
 		return m;
 

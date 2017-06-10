@@ -4,10 +4,12 @@ import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -86,8 +88,17 @@ public String signup(Model model)
 	
 }
 @RequestMapping("/addUser")
-public String addUser(@ModelAttribute("customer") Customer u,Model model)
+public String addUser(@ Valid @ModelAttribute("customer") Customer u,BindingResult result,Model model)
 { 
+	
+	if(result.hasErrors()){
+		
+		model.addAttribute("msg","Please fill details properly");
+		return "Signup";
+		
+	}
+	else
+	{
 	if(userDAO.save(u))
 	{
 		ShippingAddress shippingAddress = new ShippingAddress();
@@ -97,6 +108,7 @@ public String addUser(@ModelAttribute("customer") Customer u,Model model)
 	customer.setBillingAddress(billingAddress);
 	customer.setShippingAddress(shippingAddress);
 	model.addAttribute("customer", customer);
+	}
 	}
 	return "Signup";
 }

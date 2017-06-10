@@ -49,7 +49,7 @@ div.gallery:hover {
 
 div.gallery img {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 div.desc {
@@ -89,7 +89,9 @@ width:200;
     display: table;
     clear: both;
 }
-
+image-caption-wrapper{
+ padding-top:5px !important
+ }
 
 
 
@@ -102,14 +104,14 @@ width:200;
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  width: 100%;
+  width: 1000%;
   height: 100%;
 }
 
 /* ------------------- Carousel Styling ------------------- */
 
 .carousel-inner {
-  border-radius: 15px;
+  border-radius: 25px;
 }
 
 .carousel-caption {
@@ -118,8 +120,8 @@ width:200;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
-  padding: 0 0 10px 25px;
+  z-index: 10px;
+  padding: 0 0 5px 15px;
   color: #fff;
   text-align: center;
 }
@@ -132,7 +134,7 @@ width:200;
   width: 100%;
   z-index: 15;
   margin: 0;
-  padding: 0 25px 25px 0;
+  padding: 0 10px 15px 0;
   text-align: right;
 }
 
@@ -148,19 +150,41 @@ width:200;
 
   .container {
     max-width: 500px;
+}
+ h2{
+   text-align:center;
 
+    
+    position: relative;
+    -webkit-animation: mymove 3s infinite; /* Safari 4.0 - 8.0 */
+    -webkit-animation-timing-function: linear; /* Safari 4.0 - 8.0 */
+    animation: mymove 3s infinite;
+    animation-timing-function: linear;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
 
 
 
 </style>
 </head>
  <body >
+ <h2 style="color:navy">Welcome to your Own Shop</h2>
  <sec:authorize access="hasRole('ROLE_ADMIN')">
  <jsp:forward page="/adminHome"></jsp:forward>
  </sec:authorize> 
-  <center>
-  <h2 >Welcome to your Own Shop</h2>
-   </center>
+  
+  
+
 <form action="Home">
 <div class="container">
   
@@ -181,26 +205,33 @@ width:200;
         <li data-target="#caro" data-slide-to="0" class="active"></li>
         <li data-target="#caro" data-slide-to="1"></li>
         <li data-target="#caro" data-slide-to="2"></li>
+         <li data-target="#caro" data-slide-to="3"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <img src="resources/image/hoimg/s8.jpg" alt="...">
+          <img src="resources/image/hoimg/ho.jpg" alt="...">
           <div class="carousel-caption">
-            <h2>Unbox your Phone</h2>
+            <h4>Re-Born yourself</h4>
           </div>
         </div>
         <div class="item">
-          <img src="resources/image/hoimg/mi.jpg" alt="...">
+          <img src="resources/image/hoimg/mobed.jpg" alt="...">
           <div class="carousel-caption">
-            <h2>World sleek Air-Book</h2>
+            <h4>RestFul Environment</h4>
+          </div>
+        </div>
+         <div class="item">
+          <img src="resources/image/hoimg/lo.jpg" alt="...">
+          <div class="carousel-caption">
+            <h4>RestFul Environment</h4>
           </div>
         </div>
         <div class="item">
-          <img src="resources/image/hoimg/toyota.jpg" >
+          <img src="resources/image/hoimg/Draw.jpg" >
           <div class="carousel-caption">
-            <h2>New-Fortuner</h2>
+            <h4>Re-Invent your comfort</h4>
           </div>
         </div>
       </div>
@@ -215,15 +246,43 @@ width:200;
     </div>
 
   </div>
+  <div class="container">
+
+<div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> DEAL!!</div>
+        <div class="panel-body"><img src="resources/image/hoimg/St1.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy your luxury</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-danger">
+        <div class="panel-heading">Re-Invent</div>
+        <div class="panel-body"><img src="resources/image/hoimg/st3.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Design Your Future</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">Family Memo.</div>
+        <div class="panel-body"><img src="resources/image/hoimg/st2.jpg" class="img-responsive" style="width:100%;height:50%" alt="Image"></div>
+        <div class="panel-footer">Back To Garden</div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+</div><br><br>
 </section>
-
-
 
 <!--gallery for home page-->
 <!-- 
 <div class="responsive">
   <div class="gallery">
-    <a target="_blank" href="resources/image/hoimg/book.jpg">
+    <a target="_blank" href="resources/image/hoimg/St2.jpg">
       <img src="resources/image/hoimg/book.jpg"  style="padding:20px" width="300" height="200">
     </a>
     <div class="desc">Knowledge Section</div>
@@ -255,6 +314,7 @@ width:200;
 
 </div>-->
 
-<hr/><%@ include file="template/Footer.jsp" %>
+
+<%@ include file="template/Footer.jsp" %>
 </body>
 </html>

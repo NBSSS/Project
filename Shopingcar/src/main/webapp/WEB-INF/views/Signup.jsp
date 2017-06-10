@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page isELIgnored="false" %>
@@ -10,12 +9,10 @@
 <style>
 body {
     
-/* background-image: url("resources/image/kk.jpg"); */
+// background-image: url("resources/image/f7.gif"); 
 
-  background-repeat: repeat;
-    background-position: right center;
-   
-    background-color:powderblue;
+  background-size:cover;
+ background-position: 100% 100%;
     
 
 
@@ -36,7 +33,9 @@ font-family:arial;
 </center>
 <body >
 
-
+<c:if test="${not empty msg}">
+           <h3 style="text-align:center;">      ${msg}</h3>
+</c:if>
 
 <div class="container">
   
@@ -55,9 +54,12 @@ font-family:arial;
       <div class="col-sm-3">   
            
         <fm:input input="text" class="form-control"  path="username"></fm:input>
+         <fm:errors path="username" cssStyle="color:#ff0000;"></fm:errors>
+        </div>
+       </div>
        
-      </div>
-    </div>
+      
+       
     <div class="form-group">
       <label class="control-label col-sm-3" >Email:</label>
       <div class="col-sm-3">   
@@ -264,5 +266,7 @@ font-family:arial;
   
 </div>
  --%>
+ 
 </body>
+
 </html>
