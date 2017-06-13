@@ -9,6 +9,7 @@ public interface UserDAO {
 
 	//public boolean addUser(User u);
 	//List<User>getUser();
+	
 	public List<Customer> getAllCustomers();
 
 	public boolean save(Customer customer);

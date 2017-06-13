@@ -212,7 +212,7 @@ img {
 					
 						<div class="action">
 						
-							 <a href="${pageContext.request.contextPath}/addToCart/${product.productId}" class="add-to-cart btn btn-default" type="button">add to cart</a>
+							 <a href="${pageContext.request.contextPath}/myCart/addToCart/${product.productId}" class="add-to-cart btn btn-default" type="button">add to cart</a>
 							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
 						
 						</div>

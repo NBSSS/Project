@@ -13,7 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -28,15 +31,18 @@ import org.springframework.stereotype.Component;
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private int id;
 
-
+		@Email(message="Please provide a valid email address")
+		@Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
 		@Column(unique = true)
 		private String email;
-
+ 
+		@NotEmpty(message="name can not be empty")
 		@Column(unique = true)
 		private String username;
 
 		private String password;
-
+		
+		@NotEmpty(message="password can not be empty")
 		@Column(unique = true)
 		private String mobileno;
 

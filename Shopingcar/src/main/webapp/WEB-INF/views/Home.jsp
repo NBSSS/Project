@@ -211,25 +211,25 @@ image-caption-wrapper{
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <img src="resources/image/hoimg/ho.jpg" alt="...">
+          <img class="img-responsive" src="resources/image/hoimg/ho.jpg" alt="...">
           <div class="carousel-caption">
             <h4>Re-Born yourself</h4>
           </div>
         </div>
         <div class="item">
-          <img src="resources/image/hoimg/mobed.jpg" alt="...">
+          <img class="img-responsive" src="resources/image/hoimg/mobed.jpg" alt="...">
           <div class="carousel-caption">
             <h4>RestFul Environment</h4>
           </div>
         </div>
          <div class="item">
-          <img src="resources/image/hoimg/lo.jpg" alt="...">
+          <img class="img-responsive" src="resources/image/hoimg/lo.jpg" alt="...">
           <div class="carousel-caption">
             <h4>RestFul Environment</h4>
           </div>
         </div>
         <div class="item">
-          <img src="resources/image/hoimg/Draw.jpg" >
+          <img class="img-responsive" src="resources/image/hoimg/Draw.jpg" >
           <div class="carousel-caption">
             <h4>Re-Invent your comfort</h4>
           </div>
@@ -246,20 +246,20 @@ image-caption-wrapper{
     </div>
 
   </div>
-  <div class="container">
+  <br>
 
 <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
         <div class="panel-heading"> DEAL!!</div>
-        <div class="panel-body"><img src="resources/image/hoimg/St1.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body"><img class="img-responsive" src="resources/image/hoimg/St1.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
         <div class="panel-footer">Buy your luxury</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
         <div class="panel-heading">Re-Invent</div>
-        <div class="panel-body"><img src="resources/image/hoimg/st3.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body"><img class="img-responsive" src="resources/image/hoimg/st3.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
         <div class="panel-footer">Design Your Future</div>
       </div>
     </div>

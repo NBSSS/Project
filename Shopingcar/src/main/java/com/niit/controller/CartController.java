@@ -29,7 +29,7 @@ import com.niit.backendProject.model.Product;
 import sun.awt.AWTAccessor.SystemColorAccessor;
 
 
-
+@RequestMapping("/myCart")
 @Controller
 public class CartController {
 
@@ -69,7 +69,7 @@ public class CartController {
 
 	public String addToCart(@PathVariable("id") int id, RedirectAttributes redirect, Model model,Principal p) {
 		
-System.out.println("addtocart");
+		System.out.println("addtocart");
 		logger.info("Starting addtocart method in CartController");
 		try {
 			Cart cart = new Cart();
@@ -106,7 +106,7 @@ System.out.println("addtocart");
 
 					redirect.addFlashAttribute("success", product.getName() + " " + "Successfully added to cart!");
 					session.setAttribute("numberProducts", cartDAO.getNumberOfProducts(username));
-					return "redirect:/all";
+					return "redirect:/myCart/all";
 
 				} else {
 					redirect.addFlashAttribute("error", "Failed to add product to cart!");
@@ -121,7 +121,7 @@ System.out.println("addtocart");
 
 					redirect.addFlashAttribute("success", product.getName() + " " + "Successfully added to cart!");
 					session.setAttribute("numberProducts", cartDAO.getNumberOfProducts(username));
-					return "Cart";
+					return "redirect:/myCart/all";
 
 				} else {
 					redirect.addFlashAttribute("error", "Failed to add product to cart!");
@@ -152,12 +152,12 @@ System.out.println("addtocart");
 				cart.setQuantity(checkQ - 1);
 				cartDAO.update(cart);
 				redirect.addFlashAttribute("success", "Cart updated successfully.");
-				return "redirect:/all";
+				return "redirect:/myCart/all";
 			} else {
 				// cart.setStatus("OLD");
 				cartDAO.delete(id);
 				redirect.addFlashAttribute("success", "Item removed successfully.");
-				return "redirect:/all";
+				return "redirect:/myCart/all";
 			}
 		} catch (Exception e) {
 			logger.error("Exception occured " + e);
@@ -176,10 +176,10 @@ System.out.println("addtocart");
 
 			if (flag >= 1) {
 				redirect.addFlashAttribute("success", "All Items removed successfully.");
-				return "redirect:/all";
+				return "redirect:/myCart/all";
 			} else {
 				redirect.addFlashAttribute("error", "Failed to clear cart!");
-				return "redirect:/all";
+				return "redirect:/myCart/all";
 			}
 
 		} catch (Exception e) {

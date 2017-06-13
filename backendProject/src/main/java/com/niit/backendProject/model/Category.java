@@ -1,6 +1,7 @@
 package com.niit.backendProject.model;
 
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,9 +16,12 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 
-public class Category {
+public class Category implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9178038048476742524L;
 	@Id
-	@NotEmpty(message="Category Id should not be Empty")
 	private String catId;
 	@OneToMany(mappedBy="category",fetch=FetchType.EAGER ,cascade = CascadeType.REMOVE)
 	Set<Product>product;

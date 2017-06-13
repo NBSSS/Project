@@ -12,7 +12,7 @@
 
 		<div class="form-group">
 			<label for="name">Name</label>
-			<form:input path="customer.name" id="name" class="form-control" />
+			<form:input path="customer.username" id="username" class="form-control" />
 		</div>
 
 		<div class="form-group">
@@ -22,7 +22,7 @@
 
 		<div class="form-group">
 			<label for="phone">Mobile No.</label>
-			<form:input path="customer.mobileno" id="phone" class="form-control" />
+			<form:input path="customer.mobileno" id="mobileno" class="form-control" />
 		</div>
 
 		<h3>Billing Address</h3>

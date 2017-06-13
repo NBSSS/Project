@@ -18,7 +18,7 @@ import com.niit.backendProject.model.Author;
 import com.niit.backendProject.model.Customer;
 import com.niit.backendProject.model.User;
 
-@Repository
+@Repository("userDAO")
 @Transactional
 
 public class UserDAOImpl implements UserDAO {
@@ -162,8 +162,7 @@ public class UserDAOImpl implements UserDAO {
 		logger.info("Starting getCustomerByUsername method of customerDao");
 		try {
 			@SuppressWarnings("rawtypes")
-			Query query = sessionFactory.getCurrentSession()
-					.createQuery("from Customer where username= '" + username + "'");
+			Query query = sessionFactory.getCurrentSession().createQuery("from Customer where username= '" + username + "'");
 			Customer customer = (Customer) query.uniqueResult();
 
 			return customer;

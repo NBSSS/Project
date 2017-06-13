@@ -40,7 +40,7 @@
 				<td>${cart.productName}</td>
 					<td>&#8377 ${cart.price}</td>
 					<td>${cart.quantity }</td>
-					<td><a href="<c:url value='deleteItem/${cart.id}'/>"> <span class="glyphicon glyphicon-trash"></span></a></td>
+					<td><a href="<c:url value='/myCart/deleteItem/${cart.id}'/>"> <span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 			</c:forEach>
 			
@@ -54,7 +54,7 @@
 			&nbsp;
 			 <a href="<c:url value="/order"/>">CheckOutC</a>
 		</div>
-		<a href="<c:url value="/clearCart" />"
+		<a href="<c:url value="/myCart/clearCart" />"
 			class="btn btn-outline-danger">Clear Cart</a>
 	
 			 

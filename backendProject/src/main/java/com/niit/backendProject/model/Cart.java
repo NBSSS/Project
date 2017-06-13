@@ -1,5 +1,6 @@
 package com.niit.backendProject.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,7 +15,12 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Cart {
+public class Cart implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3430249964550686265L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

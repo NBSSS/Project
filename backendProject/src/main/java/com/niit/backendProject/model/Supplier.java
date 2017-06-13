@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 public class Supplier implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6166096839414648773L;
 	@Id
 	@Size(min=2,max=16,message="size is b/w 4-16")
 	private String supId;

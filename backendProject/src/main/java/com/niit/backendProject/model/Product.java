@@ -3,6 +3,7 @@ package com.niit.backendProject.model;
 
 
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,12 +19,16 @@ import javax.persistence.OneToMany;
 
 import javax.persistence.Transient;
 
-
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 @Component
 @Entity
-public class Product {
+public class Product implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7407873376694130123L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
@@ -37,7 +42,7 @@ private Category category;
 	@ManyToOne
 	@JoinColumn(name="supId",insertable=false,nullable=false,updatable=false)
 private	Supplier supplier;
-
+@NotEmpty(message="Please Fill Details Correctly")
 	@Column(unique=true)
 	private String name;
 	private String descp;

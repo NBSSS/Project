@@ -5,16 +5,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
 <jsp:include page="/WEB-INF/views/template/Header.jsp"></jsp:include>
-<div class="container">
-   <li><a href="supplier"> Add Supplier</a></li>
-   <li><a href="CategoryDetail"> <img src="resources/image/add-category-md.png"  style="width:100px;height:60px;border:2"><!-- Add Category --></a></li>
-   <li><a href="ProductDetail"> Add Product</a></li>
-  
-</div>         
+<body>
+
+<div class="jumbotron">
+  <h3>Admin Home</h3>      
+ <ol>
+ <li>  <a href="supplier"><img src="resources/image/supllier.png"  style="width:100px;height:100px;border:2">&nbsp Add Supplier</a><br>
+ <br><li>  <a href="CategoryDetail"> <img src="resources/image/Category.jpg"  style="width:100px;height:60px;border:2">&nbsp Add Category </a><br>
+ <br> <li> <a href="ProductDetail"></a> <img src="resources/image/products.jpg"  style="width:100px;height:60px;border:2">&nbsp Add Product</a></li>
+</ol>
+</div>      
 </body>
 </html>

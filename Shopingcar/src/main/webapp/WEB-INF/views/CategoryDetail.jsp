@@ -58,7 +58,7 @@ text-aign:center;
 
 <div class="row col-md-6 col-md-offset-5 custyle">
  
-  <fm:form action="${pageContext.request.contextPath}/addCategory" commandName="category" class="form-horizontal">
+  <fm:form action="${pageContext.request.contextPath}/addCategory" commandName="category" method="post" class="form-horizontal">
     
       <c:if test="${not empty category.cname }"> 
        <div class="form-group">
